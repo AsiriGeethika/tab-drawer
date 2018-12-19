@@ -14,6 +14,7 @@ import TabScreen3 from './src/screens/tabscreen/OrdersScreen';
 import DrawerScreen1 from './src/screens/drawerScreen/WishList';
 import TabScreen2 from './src/screens/tabscreen/ProfileScreen';
 import DrawerScreen4 from './src/screens/drawerScreen/Categories';
+import ViewCard from './src/components/ViewCard';
 
 export default class App extends Component{
   render() {
@@ -24,6 +25,7 @@ export default class App extends Component{
 }
 
 const AppStackNavigator = createStackNavigator({  
+  ViewCard:{screen:ViewCard},
   Login:{screen:Login},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
