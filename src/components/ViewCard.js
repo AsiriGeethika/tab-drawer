@@ -11,6 +11,7 @@ const data=[
        image:'csfsd.png',
        name:'Nike Sports Shoes',
        duration:'15th-30th Dec',
+       actPrice: '3500 LKR',
        savePrice:'Save 1750 LKR'
     },
 
@@ -18,15 +19,17 @@ const data=[
         offer:'20% off',
         image:'csfsd.png',
         name:'Frock',
-       duration:'15th-30th Dec',
-        savePrice:'Save 1750 LKR'
+        duration:'15th-30th Dec',
+        actPrice: '2000 LKR',
+        savePrice:'1800 LKR'
      },
 
      {
         offer:'30% off',
         image:'csfsd.png',
         name:'shoes',
-       duration:'25th dec',
+        duration:'25th dec',
+        actPrice: '2000 LKR',
         savePrice:'Save 3585 LKR'
      }
 ]
@@ -55,7 +58,7 @@ class ViewCard extends Component{
                 <CustomImage imageSource={require('./../Images/Shoe.jpg')}/>
                 <Text style={styles.item}>{val.name}</Text>
                 <Text>{val.duration}</Text>
-                {/* <Text style={styles.add1}>4000 LKR</Text> */}
+                <Text style={styles.add1}>{val.actPrice}</Text>
                 <Text style={styles.add2}>{val.savePrice}</Text>
                 </View>
             )
@@ -107,16 +110,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#0B0943', 
     },
     container1:{
-      flex: 2,
-      flexDirection: 'column',
+        flex: 2,
+        flexDirection: 'column',
         flexWrap: 'wrap',
         margin: 5,
         marginBottom: 5,
         
     },
     container2:{
-      flex: 2,
-      flexDirection: 'column',
+        flex: 2,
+        flexDirection: 'column',
         flexWrap: 'wrap',
         marginBottom: 5,
         margin: 5,
@@ -155,7 +158,7 @@ const styles = StyleSheet.create({
       fontSize: 30,
       color: '#fff',
       fontWeight: 'bold',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       backgroundColor: '#d50000',
       padding: 3,
       marginBottom: 10,
