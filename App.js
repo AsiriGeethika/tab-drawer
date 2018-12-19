@@ -25,11 +25,12 @@ export default class App extends Component{
 }
 
 const AppStackNavigator = createStackNavigator({  
-  ViewCard:{screen:ViewCard},
+  
   Login:{screen:Login},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
   Signin:{screen : SignIn},
+  ViewCard:{screen:ViewCard},
   About:{screen:DrawerScreen2},
   Orders:{screen:TabScreen3},
   Wish:{screen:DrawerScreen1},

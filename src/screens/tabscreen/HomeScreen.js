@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,} from 'react-native';
-import Content from '../../components/Content';
+import ViewCard from '../../components/ViewCard';
 import CustomHeader from '../../components/Header/Header';
  
 class TabScreen1 extends Component{
@@ -40,7 +40,7 @@ constructor(props){
               <Text style={styles.buttonText1}>About Us</Text>
             </TouchableOpacity>
               </View>
-              <Content/>
+              <ViewCard/>
             </ScrollView>   
          )
      }
