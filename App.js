@@ -15,6 +15,7 @@ import DrawerScreen1 from './src/screens/drawerScreen/WishList';
 import TabScreen2 from './src/screens/tabscreen/ProfileScreen';
 import DrawerScreen4 from './src/screens/drawerScreen/Categories';
 import ViewCard from './src/components/ViewCard';
+import ItemDetails from './src/screens/itemDetails/ItemDetails';
 
 export default class App extends Component{
   render() {
@@ -26,6 +27,7 @@ export default class App extends Component{
 
 const AppStackNavigator = createStackNavigator({  
   
+  ItemDetails:{screen:ItemDetails},
   Login:{screen:Login},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},

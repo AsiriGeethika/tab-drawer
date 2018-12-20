@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import {View,StyleSheet,Text,Image,ScrollView} from 'react-native';
+import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
 import CustomImage from './CustomImage';
 
@@ -53,13 +53,16 @@ class ViewCard extends Component{
             // {/* </View> */}
             //     </View>
 
-                <View key={key} style={styles.col2}>
+                <View key={key} style={styles.col2}  >
                 <Text style={styles.add}>{val.offer}</Text>
                 <CustomImage imageSource={require('./../Images/Shoe.jpg')}/>
                 <Text style={styles.item}>{val.name}</Text>
                 <Text>{val.duration}</Text>
                 <Text style={styles.add1}>{val.actPrice}</Text>
                 <Text style={styles.add2}>{val.savePrice}</Text>
+                <Button onPress={alert('Press bfnbn')}>
+                    <Text>More Details</Text>
+                </Button>
                 </View>
             )
             
