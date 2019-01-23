@@ -20,7 +20,7 @@ UserLoginFunction = () =>{
   const { UserEmail }  = this.state ;
   const { UserPassword }  = this.state ;
  
-    fetch('http://10.10.27.61/UserP/User_Login.php', {
+    fetch('http://10.10.24.184/UserP/User_Login.php', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

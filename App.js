@@ -16,6 +16,12 @@ import TabScreen2 from './src/screens/tabscreen/ProfileScreen';
 import DrawerScreen4 from './src/screens/drawerScreen/Categories';
 import ViewCard from './src/components/ViewCard';
 import ItemDetails from './src/screens/itemDetails/ItemDetails';
+import Category1 from './src/screens/categories/Food';
+import Category3 from './src/screens/categories/Service';
+import Category2 from './src/screens/categories/Clothing';
+import Category4 from './src/screens/categories/Finance';
+import Category5 from './src/screens/categories/Others';
+
 
 export default class App extends Component{
   render() {
@@ -27,10 +33,11 @@ export default class App extends Component{
 
 const AppStackNavigator = createStackNavigator({  
   
-  ItemDetails:{screen:ItemDetails},
+  
   Login:{screen:Login},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
+  ItemDetails:{screen:ItemDetails},
   Signin:{screen : SignIn},
   ViewCard:{screen:ViewCard},
   About:{screen:DrawerScreen2},
@@ -38,6 +45,11 @@ const AppStackNavigator = createStackNavigator({
   Wish:{screen:DrawerScreen1},
   Profile:{screen:TabScreen2},
   Categories:{screen:DrawerScreen4},
+  Food: {screen:Category1},
+  Cloth:{screen:Category2},
+  Serv : {screen:Category3},
+  Fin:{screen:Category4},
+  Other:{screen:Category5},
 
 },
     navigationOptions={

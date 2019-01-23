@@ -20,7 +20,7 @@ class Register extends Component {
  
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.27.61/UserP/user_registration.php', {
+  fetch('http://10.10.24.184/UserP/user_registration.php', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

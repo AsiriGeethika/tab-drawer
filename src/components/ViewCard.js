@@ -60,9 +60,7 @@ class ViewCard extends Component{
                 <Text>{val.duration}</Text>
                 <Text style={styles.add1}>{val.actPrice}</Text>
                 <Text style={styles.add2}>{val.savePrice}</Text>
-                <Button onPress={alert('Press bfnbn')}>
-                    <Text>More Details</Text>
-                </Button>
+                
                 </View>
             )
             
@@ -78,31 +76,6 @@ class ViewCard extends Component{
 }
  
 export default ViewCard;
-
-
-// const styles = StyleSheet.create({
-//     header: {
-//         height: 80,
-//         backgroundColor: '#33b5e5',
-//         flexDirection: 'row',
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//         padding: 20,
-       
-//       },
-//       img1:{
-//         width:40,
-//         height:40
-//       },
-//       txt:{
-//         fontSize:35,
-//         marginLeft:10,
-//         fontWeight: "600",
-//         fontStyle: 'italic',
-//         color:'#fff'
-//       }
-// });
-
 
 const styles = StyleSheet.create({
     container:{
@@ -125,8 +98,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flexWrap: 'wrap',
         marginBottom: 5,
-        margin: 5,
-       
+        margin: 5, 
     },
     col1:{
       flex: 1,
