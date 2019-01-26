@@ -5,6 +5,7 @@ import TabScreen1 from '../../screens/tabscreen/HomeScreen'
 import TabScreen2 from '../../screens/tabscreen/ProfileScreen'
 import TabScreen3 from '../../screens/tabscreen/OrdersScreen'
 import colors from '../../styles/colors';
+import TabScreen4 from '../../screens/tabscreen/Notification';
 
 const TabNavigation = createMaterialTopTabNavigator({
     Home:{
@@ -46,7 +47,7 @@ const TabNavigation = createMaterialTopTabNavigator({
         }
     },
     Messages:{
-        screen:TabScreen3,
+        screen:TabScreen4,
         navigationOptions: {
             tabBarLabel: "",
             tabBarIcon: ({ tintColor }) => (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,
+import {View,ScrollView,ImageBackground,
     Text,
     StyleSheet,
     TouchableOpacity,
@@ -15,25 +15,28 @@ constructor(props){
         return(
         <View style={StyleSheet.container}>
         <CustomHeader/>
-        <View style={StyleSheet.cont}>
-        <Text style= {styles.TextComponentStyle}>Categories</Text>
-        <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Cloth')}>
-            <Text  style= {styles.Textstyle}>Clothing</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Food')}>
-            <Text  style= {styles.Textstyle}>Food</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Fin')}>
-            <Text  style= {styles.Textstyle}>Finance</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Serv')}>
-            <Text  style= {styles.Textstyle}>Services</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Other')}>
-            <Text  style= {styles.Textstyle}>Other</Text>
-        </TouchableOpacity>
-        
-        </View>
+        <ScrollView>
+            <ImageBackground source={require('./../../Images/cat.png')} style={styles.banner}>
+                <View style={styles.cont}>
+                    <Text style= {styles.TextComponentStyle}>Categories</Text>
+                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Cloth')}>
+                        <Text  style= {styles.Textstyle}>Clothing</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Food')}>
+                        <Text  style= {styles.Textstyle}>Food</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Fin')}>
+                        <Text  style= {styles.Textstyle}>Finance</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Serv')}>
+                        <Text  style= {styles.Textstyle}>Services</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Other')}>
+                        <Text  style= {styles.Textstyle}>Other</Text>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
+        </ScrollView>
         </View>
          )
      }
@@ -49,21 +52,52 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    banner:{
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     TextComponentStyle: {
         fontSize: 28,
-        fontWeight: '600',
-        color: "#004D40",
+        fontWeight: '800',
+        color: "#fff",
         textAlign: 'center', 
-        marginBottom: 30,
+        marginBottom: 5,
         padding : 10,
     },
     Textstyle: {
         fontSize: 20,
-        fontWeight: '300',
-        color: "#004D40",
+        alignItems: 'center',
+        fontWeight: '600',
+        color: "#fff",
         textAlign: 'center', 
-        marginBottom: 30,
+        margin: 10,
         padding : 10,
+    },
+    cont:{
+        //flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#ffccbc',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.8,
+        shadowRadius:3,
+        elevation:1,
+        alignSelf:'center',
+        padding: 5,
+        width: '70%',
+        backgroundColor: 'rgba(234, 162, 162,0.5)',
+        marginBottom: 30,
+        marginTop: 30,
+    },
+    btnn:{
+        width: '70%',
+        alignItems: 'center',
+        borderWidth: 3,
+        borderColor: '#fff',
+        margin: 10,
+        borderRadius: 5,
     },
 
 });

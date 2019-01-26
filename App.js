@@ -21,6 +21,7 @@ import Category3 from './src/screens/categories/Service';
 import Category2 from './src/screens/categories/Clothing';
 import Category4 from './src/screens/categories/Finance';
 import Category5 from './src/screens/categories/Others';
+import Select from './src/authScreen/login/Select';
 
 
 export default class App extends Component{
@@ -35,6 +36,7 @@ const AppStackNavigator = createStackNavigator({
   
   
   Login:{screen:Login},
+  Selection:{screen:Select},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
   ItemDetails:{screen:ItemDetails},

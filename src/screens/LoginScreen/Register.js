@@ -1,7 +1,8 @@
-import { StyleSheet, View,TouchableOpacity, TextInput, Button, Text, Alert } from 'react-native';
+import { StyleSheet, View,TouchableOpacity, TextInput, Button, Text, Alert, ScrollView } from 'react-native';
 import React, { Component} from 'react';
+import CustomHeader from '../../components/Header/Header';
 
- 
+
 class Register extends Component { 
   static navigationOptions = {
     header: null,
@@ -48,6 +49,8 @@ UserRegistrationFunction = () =>{
 
   render() {
     return (
+      <ScrollView style={styles.Main}>
+        <CustomHeader/>
       <View style={styles.MainContainer}>
       <Text style= {styles.title}>Customer Registration</Text>
         <TextInput
@@ -90,17 +93,22 @@ UserRegistrationFunction = () =>{
             <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity> 
       </View>       
+      </ScrollView>
     );
   }
 }
 export default Register;
  
 const styles = StyleSheet.create({ 
+Main:{
+  flex: 1,
+  backgroundColor: '#fff',
+},
 MainContainer :{
   alignItems: 'center',
   justifyContent: 'center',
   flex:1,
-  backgroundColor: '#80DEEA',
+  backgroundColor: '#fff',
 }, 
 TextInputStyleClass: {
   textAlign: 'center',
@@ -112,6 +120,7 @@ TextInputStyleClass: {
   borderRadius: 5 ,
 },
 title:{
+  marginTop: 70,
   fontSize: 28, 
   fontWeight: '600',
   color: "#004D40", 

@@ -9,7 +9,7 @@ constructor(props){
 } 
 
     loginHandler=()=>{
-        this.props.navigation.navigate('DrewerNav')
+        this.props.navigation.navigate('Selection')
     }
      render(){
         return(

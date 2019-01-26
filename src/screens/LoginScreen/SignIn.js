@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity,TextInput, View, Alert, Button, Text} from 'react-native';
+import { StyleSheet, TouchableOpacity,TextInput, View, Alert, Button, ScrollView,Text} from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import CustomHeader from '../../components/Header/Header';
 
  
 class LoginActivity extends Component {
@@ -51,57 +52,33 @@ UserLoginFunction = () =>{
       }).catch((error) => {
         console.error(error);
       });
- 
- 
   }
  
   render() {
     return (
- 
-<View style={styles.MainContainer}>
-        
+      <ScrollView style={styles.Main}>
+      <CustomHeader/>
+      <View style={styles.MainContainer}>
         <Text style= {styles.TextComponentStyle}>User Login</Text>
         <TextInput 
-          // Adding hint in Text Input using Place holder.
           placeholder="Enter User Email"
- 
           onChangeText={UserEmail => this.setState({UserEmail})}
- 
-          // Making the Under line Transparent.
           underlineColorAndroid='transparent'
- 
           style={styles.TextInputStyleClass}
         />
- 
         <TextInput
-          
-          // Adding hint in Text Input using Place holder.
-          placeholder="Enter User Password"
- 
-          onChangeText={UserPassword => this.setState({UserPassword})}
- 
-          // Making the Under line Transparent.
-          underlineColorAndroid='transparent'
- 
-          style={styles.TextInputStyleClass}
- 
+          placeholder="Enter User Password" 
+          onChangeText={UserPassword => this.setState({UserPassword})} 
+          underlineColorAndroid='transparent' 
+          style={styles.TextInputStyleClass} 
           secureTextEntry={true}
-        />
- 
- <TouchableOpacity style={styles.button} onPress={this.UserLoginFunction}>
+        /> 
+        <TouchableOpacity style={styles.button} onPress={this.UserLoginFunction}>
             <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
-
-        <Button title="Back to Home" 
-            onPress={()=>this.props.navigation.navigate('Home')}
-            style={styles.btn}/>
-
-
-      
-  
- 
-</View>
-            
+        <Button title="Back to Home" onPress={()=>this.props.navigation.navigate('Home')} style={styles.btn}/>
+    </View>           
+    </ScrollView>
     );
   }
 }
@@ -144,13 +121,15 @@ export default MainProject = StackNavigator(
 });
  
 const styles = StyleSheet.create({
- 
+Main:{
+  flex: 1,
+  backgroundColor: '#fff',
+},
 MainContainer :{
-alignItems: 'center',
-justifyContent: 'center',
-flex:1,
-
-backgroundColor: '#80DEEA',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex:1,
+  backgroundColor: '#fff',
 },
  
 TextInputStyleClass: {
@@ -159,11 +138,8 @@ textAlign: 'center',
 marginBottom: 7,
 height: 40,
 borderWidth: 1,
-// Set border Hex Color Code Here.
- borderColor: '#2196F3',
- 
- // Set border Radius.
- borderRadius: 5 ,
+borderColor: '#2196F3',
+borderRadius: 5 ,
  
 },
  
@@ -172,7 +148,8 @@ TextComponentStyle: {
   fontWeight: '600',
   color: "#004D40",
   textAlign: 'center', 
-  marginBottom: 30
+  marginBottom: 30,
+  marginTop: 100,
  },
  buttonText: {
   fontSize: 18,

@@ -11,7 +11,7 @@ constructor(props){
         return(
             <ScrollView style={styles.container1}>
         <CustomHeader/>
-          <ImageBackground source={require('./../../Images/lorder.jpg')} style={styles.banner}>
+          <ImageBackground source={require('./../../Images/OrderScreen.jpg')} style={styles.banner}>
               <View style={styles.container}>
                   <Text style={styles.txt1}>Orders</Text>
                   <View style={styles.cont}>
@@ -45,21 +45,22 @@ const styles = StyleSheet.create({
       },
       txt1:{
         fontFamily: 'Cochin',
-        fontSize: 26,
-        color: '#004d40',
-        fontWeight: '700',
+        fontSize: 30,
+        color: '#000000',
+        fontWeight: '900',
       },
       btn1:{
         marginTop: 30,
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20,
-  
+        padding: 5,
+        backgroundColor: 'rgba(166, 239, 30,0.8)',
       },
       buttonText:{
         fontFamily: 'Cochin',
       fontSize: 16,
-      color: '#004d40',
+      color: '#000000',
       fontWeight: 'bold',
       },
       cont:{
@@ -70,10 +71,17 @@ const styles = StyleSheet.create({
       },
       container:{
         flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 25,
-        marginBottom: 30,
-        marginTop: 30,
+          alignItems: 'center',
+          justifyContent: 'center',
+          shadowColor: '#ffccbc',
+          shadowOffset: {width: 0, height: 2},
+          shadowOpacity: 0.8,
+          shadowRadius:3,
+          elevation:1,
+          alignSelf:'center',
+          padding: 25,
+          backgroundColor: 'rgba(166, 239, 30,0.5)',
+          marginBottom: 50,
+          marginTop: 50,
       },
     })
