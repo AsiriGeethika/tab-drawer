@@ -7,30 +7,33 @@ import CustomImage from './CustomImage';
 
 const data=[
     {
-       offer:'Buy 2 Free 1',
-       image:'csfsd.png',
-       name:'Nike Sports Shoes',
-       duration:'15th-30th Dec',
-       actPrice: '3500 LKR',
-       savePrice:'Save 1750 LKR'
+       rate:'50',
+       photoUrl:'csfsd.png',
+       name:'Ladies Shoes',
+       startDate:'15th Dec',
+       endDate: '31st Dec',
+       oldPrice: '3500 LKR',
+       newPrice:'1750 LKR'
     },
 
     {
-        offer:'20% off',
-        image:'csfsd.png',
-        name:'Frock',
-        duration:'15th-30th Dec',
-        actPrice: '2000 LKR',
-        savePrice:'1800 LKR'
+        rate:'20',
+        photoUrl:'csfsd.png',
+        name:'Nike Sports Shoes',
+        startDate:'15th Dec',
+        endDate: '31st Dec',
+        oldPrice: '3500 LKR',
+        newPrice:'1750 LKR'
      },
 
      {
-        offer:'30% off',
-        image:'csfsd.png',
-        name:'shoes',
-        duration:'25th dec',
-        actPrice: '2000 LKR',
-        savePrice:'Save 3585 LKR'
+        rate:'30',
+       photoUrl:'csfsd.png',
+       name:'Nike Sports Shoes',
+       startDate:'15th Dec',
+       endDate: '31st Dec',
+       oldPrice: '3500 LKR',
+       newPrice:'1750 LKR'
      }
 ]
 
@@ -54,12 +57,12 @@ class ViewCard extends Component{
             //     </View>
 
                 <View key={key} style={styles.col2}  >
-                <Text style={styles.add}>{val.offer}</Text>
+                <Text style={styles.add}>{val.rate}% Off</Text>
                 <CustomImage imageSource={require('./../Images/Shoe.jpg')}/>
                 <Text style={styles.item}>{val.name}</Text>
-                <Text>{val.duration}</Text>
-                <Text style={styles.add1}>{val.actPrice}</Text>
-                <Text style={styles.add2}>{val.savePrice}</Text>
+                <Text>From {val.startDate} To {val.endDate}</Text>
+                <Text style={styles.add1}>{val.oldPrice}</Text>
+                <Text style={styles.add2}>{val.newPrice}</Text>
                 
                 </View>
             )
@@ -135,7 +138,10 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       alignItems: 'flex-start',
       backgroundColor: '#d50000',
-      padding: 3,
+      paddingLeft: 20,
+      paddingRight: 20,
+      paddingBottom: 10,
+      paddingTop:10,
       marginBottom: 10,
       marginTop: 5,
       
@@ -161,9 +167,9 @@ const styles = StyleSheet.create({
     },
     item:{
       fontFamily: 'Cochin',
-      fontSize: 16,
+      fontSize: 18,
       color: '#1C2331',
-      fontWeight: 'bold',
+      fontWeight: '500',
       alignItems: 'center',
       paddingBottom: 5,
       marginTop: 10,

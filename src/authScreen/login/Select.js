@@ -15,8 +15,7 @@ constructor(props){
         return(
             <View style={styles.container}> 
                 <View style={styles.header}>
-                    <Image source={require('./../../Images/cart1.png')} style = {styles.img1}  />
-                    <Text style={styles.txt}>OfferMe</Text> 
+                    <Image source={require('./../../Images/OfferMeLogo.png')} style = {styles.img1}  />
                     <Text style={styles.txt2}>Select your user type</Text>
                 </View>
 
@@ -28,7 +27,7 @@ constructor(props){
                         <Text style={styles.buttonText1}>Supplier</Text>
                     </TouchableOpacity>
                 </View>    
-             </View>
+            </View>
          )
      }
 }
@@ -44,15 +43,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     img1:{
-            width:100,
-            height:100
-    },
-    txt:{
-            fontSize:50,
-            marginLeft:10,
-            fontWeight: "600",
-            fontStyle: 'italic',
-            color:'#fff'
+            width:300,
+            height:300
     },
     header:{
         //flexDirection: 'row',
@@ -68,15 +60,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     btnn:{
-        //backgroundColor: '#fff',
-        marginTop:20,
-        marginBottom: 50,
+        marginBottom: 100,
         marginLeft: 20,
         marginRight: 20,
         padding: 10,
         backgroundColor: 'rgba(151, 163, 168,0.8)',
-        marginLeft: 20,
-        marginRight: 20,
     },
     buttonText1:{
         fontFamily: 'Cochin',
@@ -86,7 +74,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
     txt2:{
-        marginTop: 50,
+        marginTop: 100,
         fontFamily: 'Cochin',
         fontSize: 18,
         color: '#fff',

@@ -12,7 +12,7 @@ import DrawerScreen4 from '../../screens/drawerScreen/Categories';
 const CustomDrawerComponent = (props)=>(
   <SafeAreaView>
       <View style={{height:150, backgroundColor:'white', alignItems:'center', justifyContent:'center'}}>
-          <Image source={require('./../../Images/Profile.png')} style={{height:120, width:120, borderRadius:60}} />
+          <Image source={require('./../../Images/OfferMeLogo.png')} style={{height:120, width:120, borderRadius:60}} />
       </View>
       <ScrollView>
           <DrawerItems {...props} />

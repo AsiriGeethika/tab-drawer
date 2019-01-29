@@ -11,11 +11,12 @@ class Register extends Component {
   constructor() {
     super()
     this.state = {
-        UserName: '',
-        UserAddress: '',
-        UserEmail: '',
-        UserContact: '',
-        UserPassword: ''
+        name: '',
+        username: '',
+        email: '',
+        telephone: '',
+        address: '',
+        password: ''
     }
   }
  
@@ -28,12 +29,12 @@ UserRegistrationFunction = () =>{
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-  
-        name: this.state.UserName,
-        address: this.state.UserAddress,
-        email: this.state.UserEmail,
-        contact: this.state.UserContact,
-        password: this.state.UserPassword
+        name : this.state.name,
+        username: this.state.username,
+        email: this.state.email,
+        telephone: this.state.telephone,
+        address: this.state.address,
+        password: this.state.password
   
     })
     
@@ -53,37 +54,45 @@ UserRegistrationFunction = () =>{
         <CustomHeader/>
       <View style={styles.MainContainer}>
       <Text style= {styles.title}>Customer Registration</Text>
+      <TextInput
+          placeholder="Enter Your Name"
+          onChangeText={name => this.setState({name : name})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+          />
         <TextInput
           placeholder="Enter User Name"
-          onChangeText={name => this.setState({UserName : name})}
+          onChangeText={name => this.setState({username : username})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
 
-        <TextInput 
-          placeholder="Enter User Address"
-          onChangeText={address => this.setState({UserAddress : address})}
-          underlineColorAndroid='transparent'
-          style={styles.TextInputStyleClass}
-          />
- 
         <TextInput
           placeholder="Enter User Email"
-          onChangeText={email => this.setState({UserEmail : email})}
+          onChangeText={email => this.setState({email : email})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
 
         <TextInput 
           placeholder="Enter Contact No"
-          onChangeText={contact => this.setState({UserContact : contact})}
+          onChangeText={contact => this.setState({telephone : telephone})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+          />
+
+        <TextInput 
+          placeholder="Enter User Address"
+          onChangeText={address => this.setState({address : address})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
  
+        
+ 
         <TextInput
           placeholder="Enter User Password"
-          onChangeText={password => this.setState({UserPassword : password})}
+          onChangeText={password => this.setState({password : password})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           secureTextEntry={true}

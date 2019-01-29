@@ -33,8 +33,7 @@ class CustomHeader extends Component{
             <Left>
                {rightIcon}
             </Left>
-                <Image source={require('./../../Images/cart1.png')} style = {styles.img1}  />
-                <Text style={styles.txt}>Offer Me</Text> 
+                <Image source={require('./../../Images/OfferMeLogo.png')} style = {styles.img1}  /> 
                 <Right>
                    
                 </Right> 
@@ -65,8 +64,8 @@ const styles = StyleSheet.create({
         padding: 20, 
     },
           img1:{
-            width:40,
-            height:40
+            width:200,
+            height:200
           },
           txt:{
             fontSize:35,

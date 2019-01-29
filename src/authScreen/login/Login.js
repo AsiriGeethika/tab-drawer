@@ -15,8 +15,8 @@ constructor(props){
         return(
             <View style={styles.container}> 
             <View style={styles.header}>
-                <Image source={require('./../../Images/cart1.png')} style = {styles.img1}  />
-                <Text style={styles.txt}>OfferMe</Text> 
+                <Image source={require('./../../Images/OfferMeLogo.png')} style = {styles.img1}  />
+                
             </View>
                 <View style={{alignItems:'center'}}>
                 <TouchableOpacity style={styles.btnn} onPress={this.loginHandler}>
@@ -40,15 +40,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     img1:{
-            width:100,
-            height:100
-    },
-    txt:{
-            fontSize:50,
-            marginLeft:10,
-            fontWeight: "600",
-            fontStyle: 'italic',
-            color:'#fff'
+            width:300,
+            height:300
     },
     header:{
         //flexDirection: 'row',
@@ -57,13 +50,13 @@ const styles = StyleSheet.create({
         padding: 20, 
     },
     btnn:{
-        marginTop:100,
+        marginTop:80,
         marginBottom: 20,
     },
     buttonText1:{
         fontFamily: 'Cochin',
         fontSize: 20,
-        color: '#0d47a1',
+        color: '#fff',
         fontWeight: 'bold',
         alignItems: 'center',
       }

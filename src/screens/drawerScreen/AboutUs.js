@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
  
 class DrawerScreen2 extends Component{
