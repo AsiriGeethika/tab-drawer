@@ -14,11 +14,6 @@ constructor(props){
             <ScrollView style={styles.container1}>
             
             <CustomHeader/>
-            <View style={styles.contain}>
-            <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Creoffer')}>
-              <Text style={styles.buttonText1}>Create Offer</Text>
-            </TouchableOpacity>
-              </View>
               <ImageBackground source={require('./../../Images/ww.jpg')} style={styles.banner}>
               <View style={styles.container}>
           <Text style={styles.txt1}>Sign in with OfferMe</Text>
@@ -33,7 +28,11 @@ constructor(props){
             </View>
         </View>
             </ImageBackground>
-            
+            <View style={styles.contain}>
+            <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Ad')}>
+              <Text style={styles.buttonText1}>Create Advertisement</Text>
+            </TouchableOpacity>
+              </View>
               <ViewCard/>
             </ScrollView>   
          )
@@ -103,8 +102,10 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         padding: 10,
         backgroundColor: 'rgba(151, 163, 168,0.8)',
-        
-    
+        marginTop: 15,
+        marginBottom: 5,
+        marginLeft: 20,
+        marginRight: 20,
       },
       buttonText:{
         fontFamily: 'Cochin',
@@ -115,21 +116,18 @@ const styles = StyleSheet.create({
       },
       contain :{
         width: '100%',
-        height: 50,
+        height: 60,
         alignItems: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
         backgroundColor :'#0B0943',
-        padding: 5,
-    
+        padding: 10,
       },
       btnn:{
-        backgroundColor: '#1c313a',
+        backgroundColor: 'rgb(205, 14, 14)',
         width: 300,
-        borderRadius: 25,
         height: 40,
         marginVertical: 20,
-        
-      
       },
       buttonText1:{
         fontSize: 18,
