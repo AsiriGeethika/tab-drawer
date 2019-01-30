@@ -23,6 +23,17 @@ import Category4 from './src/screens/categories/Finance';
 import Category5 from './src/screens/categories/Others';
 import Select from './src/authScreen/login/Select';
 
+import STabScreen1 from './src/Sup.screens/tabscreen/HomeScreen';
+import STabScreen4 from './src/Sup.screens/tabscreen/Notification';
+import STabScreen3 from './src/Sup.screens/tabscreen/OrdersScreen';
+import STabScreen2 from './src/Sup.screens/tabscreen/ProfileScreen';
+import SDrawerScreen2 from './src/Sup.screens/drawerScreen/AboutUs';
+import SDrawerScreen4 from './src/Sup.screens/drawerScreen/Categories';
+import SDrawerScreen1 from './src/Sup.screens/drawerScreen/WishList';
+import SDrawerScreen3 from './src/Sup.screens/drawerScreen/Settings';
+import SupRegister from './src/Sup.screens/LoginScreen/Register';
+import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
+import createAd from './src/Sup.screens/tabscreen/createAd';
 
 export default class App extends Component{
   render() {
@@ -33,8 +44,6 @@ export default class App extends Component{
 }
 
 const AppStackNavigator = createStackNavigator({  
-  
-  
   Login:{screen:Login},
   Selection:{screen:Select},
   DrewerNav:{screen:DrawerNavigator},
@@ -53,8 +62,20 @@ const AppStackNavigator = createStackNavigator({
   Fin:{screen:Category4},
   Other:{screen:Category5},
 
+  SHome: {screen:STabScreen1},
+  Smsg:{screen:STabScreen4},
+  Sorders:{screen:STabScreen3},
+  Sprof:{screen:STabScreen2},
+  Sabout:{screen:SDrawerScreen2},
+  Scategories:{screen:SDrawerScreen4},
+  Swish: {screen:SDrawerScreen1},
+  Ssettings:{screen:SDrawerScreen3},
+  Sreg:{screen:SupRegister},
+  SDrawerNav:{screen:SDrawerNav},
+  Ad:{screen:createAd},
 },
-    navigationOptions={
+
+  navigationOptions={
       headerMode:'none'
 })
 

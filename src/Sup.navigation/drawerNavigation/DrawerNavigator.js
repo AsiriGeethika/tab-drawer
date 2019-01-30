@@ -2,17 +2,17 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions, Image} from 'react-native';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import {Icon} from 'native-base';
-import TabNavigator from '../tabNavigation/TabNavigator'
-import DrawerScreen1 from '../../screens/drawerScreen/WishList'
-import DrawerScreen2 from '../../screens/drawerScreen/AboutUs'
-import DrawerScreen3 from '../../screens/drawerScreen/Settings'
-//import DrawerScreen4 from '../../screens/drawerScreen/Categories';
+import TabNavigator from '../../Sup.navigation/tabNavigation/TabNavigator';
+//import DrawerScreen1 from '../../screens/drawerScreen/WishList'
+import SDrawerScreen2 from '../../Sup.screens/drawerScreen/AboutUs';
+import SDrawerScreen3 from '../../Sup.screens/drawerScreen/Settings'
+import SDrawerScreen4 from '../../Sup.screens/drawerScreen/Categories';
 // import { Right } from 'native-base';
 
 const CustomDrawerComponent = (props)=>(
   <SafeAreaView>
       <View style={{height:150, backgroundColor:'white', alignItems:'center', justifyContent:'center'}}>
-          <Image source={require('./../../Images/OfferLogo2.png')} style={{height:200, width:200, borderRadius:60}} />
+          <Image source={require('./../../Images/OfferLogo2.png')} style={{height:120, width:120, borderRadius:60}} />
       </View>
       <ScrollView>
           <DrawerItems {...props} />
@@ -29,31 +29,23 @@ export default createDrawerNavigator({
       drawerIcon: ({ tintColor }) => <Icon name="home" size={17} />,
     }
   },
- /* DrawerScreen4: {
-    screen: DrawerScreen4,
+  SDrawerScreen4: {
+    screen: SDrawerScreen4,
     navigationOptions: {
       drawerLabel: 'Categories',
-      drawerIcon: ({ tintColor }) => <Icon name="md-list-box" size={17} />,
-    }
-  },*/
-  DrawerScreen1: {
-    screen: DrawerScreen1,
-    navigationOptions: {
-      drawerLabel: 'Wish List',
-      drawerIcon: ({ tintColor }) => <Icon name="ios-heart" size={17} />,
+      drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={17} />,
     }
   },
-
-  DrawerScreen2: {
-    screen: DrawerScreen2,
+  SDrawerScreen2: {
+    screen: SDrawerScreen2,
     navigationOptions: {
       drawerLabel: 'About Us',
       drawerIcon: ({ tintColor }) => <Icon name="ios-information-circle" size={17} />,
     }
   },
 
-  DrawerScreen3: {
-    screen: DrawerScreen3,
+  SDrawerScreen3: {
+    screen: SDrawerScreen3,
     navigationOptions: {
       drawerLabel: 'Settings',
       drawerIcon: ({ tintColor }) => <Icon name="ios-settings" size={17} />,

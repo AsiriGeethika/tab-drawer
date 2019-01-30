@@ -6,7 +6,7 @@ import {View,ScrollView,ImageBackground,
 } from 'react-native';
 import CustomHeader from '../../components/Header/Header';
  
-class DrawerScreen4 extends Component{
+class SDrawerScreen4 extends Component{
 constructor(props){
     super(props);
 
@@ -42,7 +42,7 @@ constructor(props){
      }
 }
  
-export default DrawerScreen4;
+export default SDrawerScreen4;
 
 
 const styles = StyleSheet.create({

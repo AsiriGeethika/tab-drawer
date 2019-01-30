@@ -11,6 +11,10 @@ constructor(props){
     loginHandler=()=>{
         this.props.navigation.navigate('DrewerNav')
     }
+    loginHandler1=()=>{
+        this.props.navigation.navigate('SDrawerNav')
+    }
+
      render(){
         return(
             <View style={styles.container}> 
@@ -23,7 +27,7 @@ constructor(props){
                     <TouchableOpacity style={styles.btnn} onPress={this.loginHandler}>
                         <Text style={styles.buttonText1}>Customer</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnn} onPress={this.loginHandler}>
+                    <TouchableOpacity style={styles.btnn} onPress={this.loginHandler1}>
                         <Text style={styles.buttonText1}>Supplier</Text>
                     </TouchableOpacity>
                 </View>    
