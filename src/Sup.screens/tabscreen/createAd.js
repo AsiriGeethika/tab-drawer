@@ -1,8 +1,13 @@
-import { StyleSheet, View,TouchableOpacity, TextInput,Picker,ScrollView, Text, Alert } from 'react-native';
+import { StyleSheet, View,TouchableOpacity,ImageBackground, TextInput,Picker,ScrollView, Text, Alert,Image } from 'react-native';
 import React, { Component} from 'react';
 import CustomHeader from '../../components/Header/Header';
+import ImagePicker from 'react-native-image-picker';
 
- 
+const options={
+  title: 'Upload photo',
+  takePhotoButtonTitle: 'Take photo from camera',
+  chooseFromLibraryButtonTitle: 'Choose photo from library'
+}
 class createAd extends Component { 
   static navigationOptions = {
     header: null,
@@ -15,13 +20,36 @@ class createAd extends Component {
         UserAddress: '',
         UserEmail: '',
         UserContact: '',
-        UserPassword: ''
+        UserPassword: '',
+       avatarSource: null
     }
   }
- 
+ myfun=()=>{
+  ImagePicker.showImagePicker(options, (response) => {
+    console.log('Response = ', response);
+   
+    if (response.didCancel) {
+      console.log('User cancelled image picker');
+    }
+    else if (response.error) {
+      console.log('ImagePicker Error: ', response.error);
+    }
+    
+    else {
+      let source = { uri: response.uri };
+   
+      // You can also display the image using data:
+      // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+   
+      this.setState({
+        avatarSource: source
+      });
+    }
+  });
+ }
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.27.102/user_project/user_registration.php', {
+  fetch('http://10.10.6.39/user_project/user_registration.php', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -95,22 +123,18 @@ UserRegistrationFunction = () =>{
           onChangeText={password => this.setState({UserPassword : password})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
-          secureTextEntry={true}
           />
           <TextInput
           placeholder="End Date"
           onChangeText={password => this.setState({UserPassword : password})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
-          secureTextEntry={true}
           />
-          <TextInput
-          placeholder="Photo"
-          onChangeText={password => this.setState({UserPassword : password})}
-          underlineColorAndroid='transparent'
-          style={styles.TextInputStyleClass}
-          secureTextEntry={true}
-          />
+          <Image source={this.state.avatarSource} style={styles.banner}/>
+             
+         <TouchableOpacity  style={styles.button1} onPress={this.myfun}>
+            <Text style={styles.buttonText}>upload photo</Text>
+        </TouchableOpacity> 
  
         <TouchableOpacity  style={styles.button} onPress={this.UserRegistrationFunction}>
             <Text style={styles.buttonText}>Register</Text>
@@ -164,6 +188,13 @@ button: {
   height: 40,
   marginVertical: 20, 
 },
+button1: {
+  backgroundColor: '#7fffd4',
+  width: 200,
+  borderRadius: 25,
+  height: 40,
+  marginVertical: 20, 
+},
 View: {
   flexDirection: 'row',
   justifyContent:'space-around',
@@ -180,6 +211,12 @@ View1: {
   paddingRight:10,
   paddingLeft:10,
   marginBottom: 10,
+},
+banner:{
+  width: 100,
+  height: 100,
+  alignItems: 'center',
+  justifyContent: 'center',  
 },
 View2: {
   flexDirection: 'row',

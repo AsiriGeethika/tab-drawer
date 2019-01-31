@@ -6,7 +6,7 @@ import TabNavigator from '../../Sup.navigation/tabNavigation/TabNavigator';
 //import DrawerScreen1 from '../../screens/drawerScreen/WishList'
 import SDrawerScreen2 from '../../Sup.screens/drawerScreen/AboutUs';
 import SDrawerScreen3 from '../../Sup.screens/drawerScreen/Settings'
-import SDrawerScreen4 from '../../Sup.screens/drawerScreen/Categories';
+import SDrawerScreen4 from '../../Sup.screens/drawerScreen/Myorder';
 // import { Right } from 'native-base';
 
 const CustomDrawerComponent = (props)=>(
@@ -32,8 +32,8 @@ export default createDrawerNavigator({
   SDrawerScreen4: {
     screen: SDrawerScreen4,
     navigationOptions: {
-      drawerLabel: 'Categories',
-      drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={17} />,
+      drawerLabel: 'My Offers',
+      drawerIcon: ({ tintColor }) => <Icon name="ios-cart" size={17} />,
     }
   },
   SDrawerScreen2: {

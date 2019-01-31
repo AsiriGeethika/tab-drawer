@@ -4,21 +4,35 @@ import ViewCard from '../../components/ViewCard';
 import CustomHeader from '../../components/Header/Header';
 
  
-class STabScreen1 extends Component{
+class HScreen extends Component{
 constructor(props){
     super(props);
 
 } 
+myfun=()=>{
+  alert('you are noy sign yet');
+}
      render(){
         return(
             <ScrollView style={styles.container1}>
             
             <CustomHeader/>
               <ImageBackground source={require('./../../Images/ww.jpg')} style={styles.banner}>
-             
+              <View style={styles.container}>
+          <Text style={styles.txt1}>Sign in with OfferMe</Text>
+          <Text style={styles.txt2}>We can personalize your OfferMe experience</Text>
+            <View style={styles.cont}>   
+              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('SSignin')}>
+                <Text style={styles.buttonText}>Sign In</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Sreg')}>
+                <Text style={styles.buttonText}>Register</Text>
+              </TouchableOpacity>
+            </View>
+        </View>
             </ImageBackground>
             <View style={styles.contain}>
-            <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Ad')}>
+            <TouchableOpacity style={styles.btnn} onPress={this.myfun}>
               <Text style={styles.buttonText1}>Create Advertisement</Text>
             </TouchableOpacity>
               </View>
@@ -28,7 +42,7 @@ constructor(props){
      }
 }
  
-export default STabScreen1;
+export default HScreen;
 
 
 const styles = StyleSheet.create({

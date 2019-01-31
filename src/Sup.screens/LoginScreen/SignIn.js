@@ -20,7 +20,7 @@ UserLoginFunction = () =>{
   const { UserEmail }  = this.state ;
   const { UserPassword }  = this.state ;
  
-    fetch('http://10.10.27.102/user_project/User_Login.php', {
+    fetch('http://10.10.6.39/user_project/User_Login.php', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -40,7 +40,7 @@ UserLoginFunction = () =>{
         {
  
             //Then open Profile activity and send user email to profile activity.
-            this.props.navigation.navigate('DrewerNav', { Email: UserEmail });
+            this.props.navigation.navigate('SDrawerNav', { Email: UserEmail });
  
         }
         else{

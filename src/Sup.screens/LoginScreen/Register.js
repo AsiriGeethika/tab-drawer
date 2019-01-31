@@ -21,7 +21,7 @@ class SupRegister extends Component {
  
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.27.102/user_project/user_registration.php', {
+  fetch('http://10.10.6.39/user_project/user_registration.php', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

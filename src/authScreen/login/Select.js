@@ -12,7 +12,7 @@ constructor(props){
         this.props.navigation.navigate('DrewerNav')
     }
     loginHandler1=()=>{
-        this.props.navigation.navigate('SDrawerNav')
+        this.props.navigation.navigate('HScreen')
     }
 
      render(){

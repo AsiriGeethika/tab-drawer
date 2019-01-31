@@ -23,15 +23,17 @@ import Category4 from './src/screens/categories/Finance';
 import Category5 from './src/screens/categories/Others';
 import Select from './src/authScreen/login/Select';
 
+import HScreen from './src/Sup.screens/tabscreen/HScreen';
 import STabScreen1 from './src/Sup.screens/tabscreen/HomeScreen';
 import STabScreen4 from './src/Sup.screens/tabscreen/Notification';
 import STabScreen3 from './src/Sup.screens/tabscreen/OrdersScreen';
 import STabScreen2 from './src/Sup.screens/tabscreen/ProfileScreen';
 import SDrawerScreen2 from './src/Sup.screens/drawerScreen/AboutUs';
-import SDrawerScreen4 from './src/Sup.screens/drawerScreen/Categories';
+import SDrawerScreen4 from './src/Sup.screens/drawerScreen/Myorder';
 import SDrawerScreen1 from './src/Sup.screens/drawerScreen/WishList';
 import SDrawerScreen3 from './src/Sup.screens/drawerScreen/Settings';
 import SupRegister from './src/Sup.screens/LoginScreen/Register';
+import SSignin from './src/Sup.screens/LoginScreen/SignIn';
 import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
 import createAd from './src/Sup.screens/tabscreen/createAd';
 
@@ -71,8 +73,10 @@ const AppStackNavigator = createStackNavigator({
   Swish: {screen:SDrawerScreen1},
   Ssettings:{screen:SDrawerScreen3},
   Sreg:{screen:SupRegister},
+  SSignin:{screen:SSignin},
   SDrawerNav:{screen:SDrawerNav},
   Ad:{screen:createAd},
+  HScreen:{screen:HScreen},
 },
 
   navigationOptions={
