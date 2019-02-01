@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
 import CustomImage from './CustomImage';
+import axios from 'axios';
 
 
 const data=[
@@ -26,38 +27,59 @@ const data=[
         newPrice:'1750 LKR'
      },
 
-     {
-        rate:'30',
+    {
+       discount:'30',
        photoUrl:'csfsd.png',
        name:'Nike Sports Shoes',
        startDate:'15th Dec',
        endDate: '31st Dec',
        oldPrice: '3500 LKR',
        newPrice:'1750 LKR'
-     }
+    }
 ]
 
 class ViewCard extends Component{
     constructor(props){
         super(props);
-    } 
+        this.state={
+            discount:'',
+            photoUrl:'',
+            name:'',
+            startDate:'',
+            endDate: '',
+            oldPrice: '',
+            newPrice:''
+        }
+    }
+
+    componentDidMount(){
+        this.getSingleJob()
+    }
+    
+    getSingleJob(){
+          fetch(' http://10.10.24.184:8080/api/home/all', {
+            method: 'GET',
+           headers: {
+              'Content-Type': 'application/json'
+            },    
+        }).then((response) => {
+            console.log(response);
+            return response.json()
+        })
+          .then((res) => {
+                console.log(res)
+                this.setState({data:res})
+            })
+     .done();
+      
+      }
 
      render(){
         let View_Card=data.map((val, key)=>{
             return(
-            //     <View key={key} style={styles.item} >
-            //       {/* <View style={styles.col1}> */}
-            //     <Text style={styles.add}>{val.offer}</Text>
-            //     {/* <CustomImage imageSource={require('../Images/shirt.jpg')}/> */}
-            //     <Text style={styles.item}>{val.name}</Text>
-            //     <Text>{val.duration}</Text>
-            //     <Text style={styles.add2}>{val.savePrice}</Text>
-            //     <Text></Text>
-            // {/* </View> */}
-            //     </View>
 
                 <View key={key} style={styles.col2}  >
-                <Text style={styles.add}>{val.rate}% Off</Text>
+                <Text style={styles.add}>{val.discount}% Off</Text>
                 <CustomImage imageSource={require('./../Images/Shoe.jpg')}/>
                 <Text style={styles.item}>{val.name}</Text>
                 <Text>From {val.startDate} To {val.endDate}</Text>
