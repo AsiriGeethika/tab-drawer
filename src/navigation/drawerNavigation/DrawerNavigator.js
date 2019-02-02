@@ -6,6 +6,7 @@ import TabNavigator from '../tabNavigation/TabNavigator'
 import DrawerScreen1 from '../../screens/drawerScreen/WishList'
 import DrawerScreen2 from '../../screens/drawerScreen/AboutUs'
 import DrawerScreen3 from '../../screens/drawerScreen/Settings'
+import Logout from '../../authScreen/logout/Logout';
 //import DrawerScreen4 from '../../screens/drawerScreen/Categories';
 // import { Right } from 'native-base';
 
@@ -56,6 +57,14 @@ export default createDrawerNavigator({
     screen: DrawerScreen3,
     navigationOptions: {
       drawerLabel: 'Settings',
+      drawerIcon: ({ tintColor }) => <Icon name="ios-settings" size={17} />,
+    }
+  },
+
+  Logout: {
+    screen: Logout,
+    navigationOptions: {
+      drawerLabel: 'Logout',
       drawerIcon: ({ tintColor }) => <Icon name="ios-settings" size={17} />,
     }
   },
