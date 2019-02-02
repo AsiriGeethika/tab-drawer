@@ -4,6 +4,38 @@ import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator
 import {Button,Body,Left,Icon,Right} from "native-base";
 // import CustomImage from './CustomImage';
 
+const data=[
+    {
+       discount:'50',
+       photoUrl:'csfsd.png',
+       name:'Ladies Shoes',
+       startDate:'15th Dec',
+       endDate: '31st Dec',
+       oldPrice: '3500 LKR',
+       newPrice:'1750 LKR'
+    },
+
+    {
+        discount:'20',
+        photoUrl:'csfsd.png',
+        name:'Nike Sports Shoes',
+        startDate:'15th Dec',
+        endDate: '31st Dec',
+        oldPrice: '3500 LKR',
+        newPrice:'1750 LKR'
+     },
+
+    {
+       discount:'30',
+       photoUrl:'csfsd.png',
+       name:'Nike Sports Shoes',
+       startDate:'15th Dec',
+       endDate: '31st Dec',
+       oldPrice: '3500 LKR',
+       newPrice:'1750 LKR'
+    }
+]
+
 class SelectItemView extends Component{
     constructor(props){
         super(props);
@@ -27,7 +59,7 @@ class SelectItemView extends Component{
         console.log("get async storage selectItemView "+id);
         this.setState({
             id:id,
-            isLoading:false
+            // isLoading:false
         })
         console.log("get async storage in state in select item "+this.state.id+" "+this.state.isLoading);
         this.getAllJob()
@@ -40,7 +72,7 @@ class SelectItemView extends Component{
     }
     
     getAllJob(){
-        fetch(`http://10.10.24.184:8080/api/home/1`, {
+        fetch(`http://10.10.24.184:8080/api/home/${this.state.id}`, {
 
             method: 'GET',
             headers: {
@@ -53,13 +85,14 @@ class SelectItemView extends Component{
                 data:res,
                 isLoading:false
             })
-            console.log("Set state data selectItemView ", this.state.data);
+            console.log("Set state data selectItemView fdd ", this.state.data);
             console.log("Set state isLoading ", this.state.isLoading);
             })
             .done();
       }
 
       render(){
+          console.log("Select item view render");
         if(this.state.isLoading){
             return(
                 <View>
@@ -89,9 +122,7 @@ class SelectItemView extends Component{
     
         return(
             <ScrollView>
-                {/* {View_Card} */}
-
-                <Text>Select Item View</Text>
+                {View_Card}
             </ScrollView>
          )
         }

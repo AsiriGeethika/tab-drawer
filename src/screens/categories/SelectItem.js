@@ -78,8 +78,6 @@ render(){
               </View>
         </ImageBackground>
 
-        <Text>Select Item Work..!</Text>
-
           <SelectItemView />
 
             </ScrollView>

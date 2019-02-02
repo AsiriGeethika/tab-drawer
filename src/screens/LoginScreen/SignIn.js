@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity,TextInput, View, Alert, Button,ImageBackground, ScrollView,Text} from 'react-native';
+import { StyleSheet, TouchableOpacity,TextInput, View, Alert, Button,ImageBackground, ScrollView,Text,AsyncStorage} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import CustomHeader from '../../components/Header/Header';
 import ViewCard from '../../components/ViewCard';
@@ -14,16 +14,18 @@ class LoginActivity extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      UserEmail: '',
-      UserPassword: ''
+      usernameOrEmail: '',
+      password: ''
     }
   }
  
 UserLoginFunction = () =>{
-  const { UserEmail }  = this.state ;
-  const { UserPassword }  = this.state ;
+  const { usernameOrEmail }  = this.state ;
+  const { password }  = this.state ;
+  console.log("Username or Email :"+usernameOrEmail);
+  console.log("password :"+password);
  
-    fetch('http://10.10.24.184/UserP/User_Login.php', {
+    fetch('http://10.10.24.184:8080/api/auth/signin', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -31,30 +33,38 @@ UserLoginFunction = () =>{
       },
       
       body: JSON.stringify({
-        email: UserEmail,
-        password: UserPassword
+        // usernameOrEmail: usernameOrEmail,
+        // password: password
+
+        usernameOrEmail: "lahiru12",
+        password: "g7fgsuvg"
       })
  
 }).then((response) => response.json())
       .then((responseJson) => {
+        console.log("I am in login ",responseJson)
+        this.dataHandler(responseJson);
  
-        // If server response message same as Data Matched
-       if(responseJson === 'Data Matched')
-        {
- 
-            //Then open Profile activity and send user email to profile activity.
-            this.props.navigation.navigate('Second', { Email: UserEmail });
- 
-        }
-        else{
- 
-          Alert.alert(responseJson);
-        }
- 
-      }).catch((error) => {
-        console.error(error);
-      });
+      })
   }
+
+  dataHandler(data){
+    // console.log("login data Handler "+data.accessToken);
+    this.setasyncToken(data.accessToken);
+    this.props.navigation.navigate('DrewerNav')
+  }
+
+  async setasyncToken(token){
+    console.log("I am at token setasyncToken "+token);
+    try{
+        await AsyncStorage.setItem("token", token);
+        console.log("set token async storage ");
+
+    }catch(error){
+        console.log("in dataHandler login token set ",error);
+    }
+    // this.props.navigation.navigate('SelectItem')
+}
  
   render() {
     return (
@@ -64,13 +74,13 @@ UserLoginFunction = () =>{
         <Text style= {styles.TextComponentStyle}>User Login</Text>
         <TextInput 
           placeholder="Enter User Email"
-          onChangeText={UserEmail => this.setState({UserEmail})}
+          onChangeText={usernameOrEmail => this.setState({usernameOrEmail})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
         />
         <TextInput
           placeholder="Enter User Password" 
-          onChangeText={UserPassword => this.setState({UserPassword})} 
+          onChangeText={password => this.setState({password})} 
           underlineColorAndroid='transparent' 
           style={styles.TextInputStyleClass} 
           secureTextEntry={true}
