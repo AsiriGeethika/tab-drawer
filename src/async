@@ -1,0 +1,11 @@
+category_name
+category_id
+token
+
+await AsyncStorage.setItem("discount", discount);
+            await AsyncStorage.setItem("endDate", endDate);
+            await AsyncStorage.setItem("name", name);
+            await AsyncStorage.setItem("newPrice", newPrice);
+            await AsyncStorage.setItem("oldPrice", oldPrice);
+            await AsyncStorage.setItem("photoUrl", photoUrl);
+            await AsyncStorage.setItem("startDate", startDate);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,} from 'react-native';
 import ViewCard from '../../components/ViewCard';
 import CustomHeader from '../../components/Header/Header';
+import ViewCardAuth from '../../components/viewCard/ViewCardAuth';
  
 class TabScreen1 extends Component{
 constructor(props){
@@ -33,7 +34,9 @@ render(){
         </TouchableOpacity>
       </View>
               
-      <ViewCard/>
+      {/* <ViewCard/> */}
+
+      <ViewCardAuth />
     </ScrollView>   
   )
   }

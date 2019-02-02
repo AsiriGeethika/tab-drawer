@@ -24,11 +24,11 @@ componentDidMount(){
         <View style={StyleSheet.container}>
         <CustomHeader/>
         <ScrollView>
-            {/* <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}> */}
+            <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}>
                 
 
                 <CategoryView />
-            {/* </ImageBackground> */}
+            </ImageBackground>
         </ScrollView>
         </View>
          )
