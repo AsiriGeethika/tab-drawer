@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
+import ClothingView from '../../components/clothingView/ClothingView';
  
 class Category2 extends Component{
 constructor(props){
@@ -9,8 +10,9 @@ constructor(props){
 } 
      render(){
         return(
-        <ScrollView style={styles.container1}>
+        <View style={styles.container1}>
             <CustomHeader/>
+            <ScrollView>
             <ImageBackground source={require('./../../Images/cloth.jpg')} style={styles.banner}>
               <View style={styles.container}>
                   <Text style={styles.txt1}>Clothing</Text>
@@ -21,7 +23,12 @@ constructor(props){
                   </View>
               </View>
         </ImageBackground>
-        </ScrollView>
+
+        <ClothingView />
+
+            </ScrollView>
+            
+        </View>
          )
      }
 }

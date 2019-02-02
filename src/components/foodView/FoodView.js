@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
-import CustomImage from './CustomImage';
+// import CustomImage from './CustomImage';
 
 
 
@@ -37,7 +37,7 @@ const data=[
        newPrice:'1750 LKR'
     }
 ]
-class ViewCard extends Component{
+class FoodView extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -52,8 +52,8 @@ class ViewCard extends Component{
     }
     
     getAllJob(){
-     
-        fetch(' http://10.10.24.184:8080/api/home/all', {
+        // http://localhost:8080/api/home/5
+        fetch(' http://10.10.24.184:8080/api/home/2', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ class ViewCard extends Component{
      
     }
 }
-export default ViewCard;
+export default FoodView;
 
 const styles = StyleSheet.create({
     container:{

@@ -1,15 +1,67 @@
 import React, { Component } from 'react';
-import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,} from 'react-native';
+import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,AsyncStorage,ActivityIndicator} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
-import FoodView from '../../components/foodView/FoodView';
+// import FoodView from '../../components/foodView/FoodView';
+import SelectItemView from '../../components/selectItemView/SelectItemView';
  
-class Category1 extends Component{
+class SelectItem extends Component{
 constructor(props){
     super(props);
+    this.state=({
+        name:'',
+        id:'',
+        isLoading:true
+    })
 
-} 
-     render(){
+
+}
+
+componentDidMount(){
+    console.log("SelectItems ******");
+    this.getData()
+}
+
+// async getData(){
+//     console.log("I am in select Item ");
+// }
+
+async getData(){
+
+    console.log("I am in selectItem in getData");
+    try{
+        let name=await AsyncStorage.getItem("category_name");
+        let id=await AsyncStorage.getItem("category_id");
+        console.log("get async storage "+name+" "+id);
+        this.setState({
+            name:name,
+            id:id,
+            isLoading:false
+        })
+        console.log("get async storage in state in select item "+this.state.name+" "+this.state.id+" "+this.state.isLoading);
+
+
+    }catch(error){
+        console.log("in dataHandler at selectItem ",error);
+    }
+}
+
+render(){
+    // console.log("this.state.isLoading "+this.state.name)
+    // console.log("this.state.isLoading "+this.state.isLoading)
+    var name=this.state.name
+    if(this.state.isLoading){
+    // if(true){
+        console.log("Name ********** !!!!!!!!!!!!");
+
         return(
+            <View>
+                <ActivityIndicator size="large" color="red" />
+            </View>
+
+        )
+    }else{
+
+    return(
         <View style={styles.container1}>
             <CustomHeader/>
 
@@ -17,7 +69,7 @@ constructor(props){
 
               <ImageBackground source={require('./../../Images/food.jpg')} style={styles.banner}>
               <View style={styles.container}>
-                  <Text style={styles.txt1}>Food</Text>
+                  <Text style={styles.txt1}>{name}</Text>
                   <View style={styles.cont}>
                     <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Home')}>
                         <Text style={styles.buttonText}>Subscribe</Text>
@@ -26,16 +78,20 @@ constructor(props){
               </View>
         </ImageBackground>
 
-          <FoodView />
+        <Text>Select Item Work..!</Text>
+
+          <SelectItemView />
 
             </ScrollView>
             
-        </View>
-         ) 
-     }
+        </View>        
+     )
+    }
+ 
+}
 }
  
-export default Category1;
+export default SelectItem;
 
 
 const styles = StyleSheet.create({

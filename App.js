@@ -4,6 +4,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import Login from './src/authScreen/login/Login';
+import DefaultScreen from './src/screens/Default/DefaultScreen'
 import ForgotPassword from './src/authScreen/forgotPassword/ForgotPassword';
 import TabNavigator from './src/navigation/tabNavigation/TabNavigator';
 import DrawerNavigator from './src/navigation/drawerNavigation/DrawerNavigator';
@@ -34,6 +35,7 @@ import SDrawerScreen3 from './src/Sup.screens/drawerScreen/Settings';
 import SupRegister from './src/Sup.screens/LoginScreen/Register';
 import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
 import createAd from './src/Sup.screens/tabscreen/createAd';
+import SelectItem from './src/screens/categories/SelectItem';
 
 
 export default class App extends Component{
@@ -47,6 +49,9 @@ export default class App extends Component{
 const AppStackNavigator = createStackNavigator({  
   Login:{screen:Login},
   Selection:{screen:Select},
+  DefaultScreen:{screen:DefaultScreen},
+  SelectItem:{screen:SelectItem},
+  DrawerScreen4:{screen:DrawerScreen4},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
   ItemDetails:{screen:ItemDetails},

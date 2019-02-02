@@ -1,4 +1,4 @@
-import { StyleSheet, View,TouchableOpacity, TextInput, Button, Text, Alert, ScrollView } from 'react-native';
+import { StyleSheet, View,TouchableOpacity, TextInput, Button,KeyboardAvoidingView, Text, Alert, ScrollView } from 'react-native';
 import React, { Component} from 'react';
 import CustomHeader from '../../components/Header/Header';
 
@@ -11,38 +11,47 @@ class Register extends Component {
   constructor() {
     super()
     this.state = {
-        name: '',
-        username: '',
-        email: '',
-        telephone: '',
-        address: '',
-        password: ''
+        Name: '',
+        Username: '',
+        Email: '',
+        Telephone: '',
+        Address: '',
+        Password: '',
+        UserRoll:''
     }
   }
  
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.24.184/UserP/user_registration.php', {
+  fetch('http://10.10.24.184:8080/api/auth/signup', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-        name : this.state.name,
-        username: this.state.username,
-        email: this.state.email,
-        telephone: this.state.telephone,
-        address: this.state.address,
-        password: this.state.password
+        name : this.state.Name,
+        username: this.state.Username,
+        email: this.state.Email,
+        telephone: this.state.Telephone,
+        address: this.state.Address,
+        password: this.state.Password,
+        userRoll:"customer"
   
     })
     
   
   }).then((response) => response.json())
         .then((responseJson) => {
-  // Showing response message coming from server after inserting records.
-          Alert.alert(responseJson);  
+          if(responseJson.success === true)
+          {
+            Alert.alert(JSON.stringify(responseJson.message));
+              this.props.navigation.navigate('Profile'); 
+          }
+          else{
+            Alert.alert(JSON.stringify(responseJson.message));
+              this.props.navigation.navigate('Reg');
+          }  
         }).catch((error) => {
           console.error(error);
         });
@@ -50,40 +59,41 @@ UserRegistrationFunction = () =>{
 
   render() {
     return (
+      //<KeyboardAvoidingView>
       <ScrollView style={styles.Main}>
         <CustomHeader/>
       <View style={styles.MainContainer}>
       <Text style= {styles.title}>Customer Registration</Text>
       <TextInput
           placeholder="Enter Your Name"
-          onChangeText={name => this.setState({name : name})}
+          onChangeText={name => this.setState({Name : name})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
         <TextInput
           placeholder="Enter User Name"
-          onChangeText={name => this.setState({username : username})}
+          onChangeText={username => this.setState({Username : username})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
 
         <TextInput
           placeholder="Enter User Email"
-          onChangeText={email => this.setState({email : email})}
+          onChangeText={email => this.setState({Email : email})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
 
         <TextInput 
           placeholder="Enter Contact No"
-          onChangeText={contact => this.setState({telephone : telephone})}
+          onChangeText={telephone => this.setState({Telephone : telephone})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
 
         <TextInput 
           placeholder="Enter User Address"
-          onChangeText={address => this.setState({address : address})}
+          onChangeText={address => this.setState({Address : address})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />
@@ -92,7 +102,7 @@ UserRegistrationFunction = () =>{
  
         <TextInput
           placeholder="Enter User Password"
-          onChangeText={password => this.setState({password : password})}
+          onChangeText={password => this.setState({Password : password})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           secureTextEntry={true}
@@ -103,6 +113,7 @@ UserRegistrationFunction = () =>{
         </TouchableOpacity> 
       </View>       
       </ScrollView>
+      //</KeyboardAvoidingView>
     );
   }
 }

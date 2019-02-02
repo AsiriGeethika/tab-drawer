@@ -5,37 +5,30 @@ import {View,ScrollView,ImageBackground,
     TouchableOpacity,
 } from 'react-native';
 import CustomHeader from '../../components/Header/Header';
+import CategoryView from '../../components/categoryView/CategoryView'
  
 class DrawerScreen4 extends Component{
 constructor(props){
     super(props);
 
 } 
+
+componentDidMount(){
+    console.log("Category  ******");
+    console.log(this.props.navigation);
+}
      render(){
+         console.log("Hello I am in Categories");
+         console.log(this.props.navigation);
         return(
         <View style={StyleSheet.container}>
         <CustomHeader/>
         <ScrollView>
-            <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}>
-                <View style={styles.cont}>
-                    <Text style= {styles.TextComponentStyle}>Categories</Text>
-                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Cloth')}>
-                        <Text  style= {styles.Textstyle}>Clothing</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Food')}>
-                        <Text  style= {styles.Textstyle}>Food</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Fin')}>
-                        <Text  style= {styles.Textstyle}>Finance</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Serv')}>
-                        <Text  style= {styles.Textstyle}>Services</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Other')}>
-                        <Text  style= {styles.Textstyle}>Other</Text>
-                    </TouchableOpacity>
-                </View>
-            </ImageBackground>
+            {/* <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}> */}
+                
+
+                <CategoryView />
+            {/* </ImageBackground> */}
         </ScrollView>
         </View>
          )
