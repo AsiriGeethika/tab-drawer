@@ -72,8 +72,9 @@ class ViewCardAuth extends Component{
             .done();
       }
 
-      async viewMoreDetails(discount, endDate, name, newPrice, oldPrice, photoUrl, startDate){
+      async viewMoreDetails(item_id, discount, endDate, name, newPrice, oldPrice, photoUrl, startDate){
 
+        console.log("viewMoreDetails in View Auth Card "+ item_id.toString());
           console.log("viewMoreDetails in View Auth Card "+ discount.toString());
           console.log("viewMoreDetails in View Auth Card "+ endDate.toString());
           console.log("viewMoreDetails in View Auth Card "+ name.toString());
@@ -83,6 +84,7 @@ class ViewCardAuth extends Component{
           console.log("viewMoreDetails in View Auth Card "+ startDate.toString());
 
           try{
+            await AsyncStorage.setItem("item_id", item_id.toString());
             await AsyncStorage.setItem("discount", discount.toString());
             await AsyncStorage.setItem("endDate", endDate.toString());
             await AsyncStorage.setItem("name", name.toString());
@@ -135,7 +137,7 @@ class ViewCardAuth extends Component{
                 <Text style={styles.add2}>{val.newPrice}</Text>
 
                 <TouchableOpacity style={{backgroundColor:'red'}}
-                    onPress={()=>this.viewMoreDetails(val.discount, val.endDate, val.name, val.newPrice, val.oldPrice, val.photoUrl, val.startDate)}
+                    onPress={()=>this.viewMoreDetails(val.id,val.discount, val.endDate, val.name, val.newPrice, val.oldPrice, val.photoUrl, val.startDate)}
                 >
                     <Text>
                         More Details

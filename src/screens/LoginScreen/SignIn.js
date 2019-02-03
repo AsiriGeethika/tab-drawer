@@ -64,6 +64,43 @@ UserLoginFunction = () =>{
         console.log("in dataHandler login token set ",error);
     }
     // this.props.navigation.navigate('SelectItem')
+
+    this.getUserDetails(token);
+}
+
+getUserDetails(token){
+  const { usernameOrEmail }  = this.state ;
+  const { password }  = this.state ;
+  console.log("Username or Email :"+usernameOrEmail);
+  console.log("password :"+password);
+ 
+    fetch(`http://10.10.24.184:8080/api/user/${token}`, {
+      method: 'GET',
+ 
+}).then((response) => response.json())
+      .then((responseJson) => {
+        console.log("I am in login user Details ",responseJson)
+        this.userHandler(responseJson);
+ 
+      })
+
+}
+
+async userHandler(data){
+  console.log("I am in UserHandler in SignIn ",data)
+  // console.log("I am in UserHandler in SignIn ",data.toString())
+  var user_details=JSON.stringify(data)
+  console.log("I am in UserHandler in SignIn "+user_details)
+
+  try{
+    await AsyncStorage.setItem("user_details", user_details);
+    console.log("set user details async storage &&&");
+
+}catch(error){
+    console.log("in dataHandler login user details set ",error);
+}
+
+
 }
  
   render() {

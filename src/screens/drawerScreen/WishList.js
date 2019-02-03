@@ -1,24 +1,149 @@
 import React, { Component } from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,ScrollView,ImageBackground} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,ScrollView,Image,ImageBackground,AsyncStorage,ActivityIndicator} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
  
 class DrawerScreen1 extends Component{
 constructor(props){
     super(props);
+    this.state=({
+        data:null,
+        isLoading:true
+    })
 
-} 
-     render(){
+}
+componentDidMount(){
+    this.getuser_id();
+}
+
+async getuser_id(){    
+    console.log("wishlist in getuser_id");
+    try{
+      var user_details=await AsyncStorage.getItem("user_details");
+
+
+      console.log("wishlist in getuser_id $$$$$$ ");  
+    console.log("wishlist in getuser_id user_details "+ user_details)
+
+    this.setState({
+      user_details:user_details,
+    })
+
+    console.log("wishlist in getuser_id user_details in state ", this.state.user_details);
+
+    
+
+  }catch(error){
+      console.log("in dataHandler login token set ",error);
+  }
+
+  this.getWishlist();
+  
+}
+
+getWishlist(){
+    console.log("view wish list");
+
+    var user_id=JSON.parse(this.state.user_details).id
+    console.log("add Wish List_User_id  "+user_id);
+
+    console.log("view wish list");
+
+
+   
+      fetch(`http://10.10.24.184:8080/api/wishList/WishLists/${user_id}`, {
+        method: 'GET',
+   
+  })
+  .then((response) => response.json())
+  .then((responseJson) => {
+    console.log("in show wishlist ",responseJson)
+    this.wishlistHandler(responseJson);
+  })
+  }
+
+  wishlistHandler(data){
+      console.log("I am in wishlistHandler ", data)
+      this.setState({
+        data:data,
+        isLoading:false
+    })
+
+    console.log("show Wishlist in state ",this.state.data);
+  }
+
+  deleteWishlist(){
+      alert("Pending delete wait for Gera API")
+  }
+
+    render(){
+        if(this.state.isLoading){
+            return(
+                <ScrollView style={styles.container1}>
+                <CustomHeader/>
+                  <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
+                      {/* <View style={styles.container}>
+                          <Text style={styles.txt1}>Wish List</Text>
+                      </View> */}
+                      
+                </ImageBackground>
+                <View>
+                        <ActivityIndicator size="large" color="red" />
+                    </View>
+                </ScrollView>  
+
+            )
+        }else{
+            console.log("View Card is else");
+            let View_Card=this.state.data.map((val, key)=>{
+        // let View_Card=data.map((val, key)=>{
+            return(
+                 <View key={key} style={styles.col2}  >
+                <Text style={styles.add}>{val.discount}% Off</Text>
+                {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
+                {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
+                
+                <Image
+                    style={{width: 50, height: 50}}
+                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+                />
+                <Text style={styles.item}>{val.name}</Text>
+                {/* str.substring(1, 4); */}
+                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
+                <Text style={styles.add1}>{val.oldPrice}</Text>
+                <Text style={styles.add2}>{val.newPrice}</Text>
+
+                <TouchableOpacity style={{backgroundColor:'red'}}
+                    onPress={()=>this.deleteWishlist()}
+                >
+                    <Text>
+                        Delete from list
+                    </Text>
+                </TouchableOpacity>
+                
+                </View>
+            )
+        })
+    
         return(
             <ScrollView style={styles.container1}>
             <CustomHeader/>
               <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
-                  <View style={styles.container}>
+                  {/* <View style={styles.container}>
                       <Text style={styles.txt1}>Wish List</Text>
-                  </View>
+                  </View> */}
+               
             </ImageBackground>
+            <ScrollView>
+                    {View_Card}
+                </ScrollView>
             </ScrollView>  
-             )
-         }
+            
+         )
+        }
+     
+    }
+
+
     }
      
 export default DrawerScreen1;

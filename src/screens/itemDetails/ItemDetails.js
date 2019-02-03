@@ -11,6 +11,7 @@ class ItemDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      user_details:'',
       discount:'',
       endDate:'',
       name:'',
@@ -25,18 +26,81 @@ class ItemDetails extends Component {
     this.getMoreDetails();
   }
 
+  // http://localhost:8080/api/user/
+
   addWishList(){
     console.log("Add wish list");
+
+    var user_id=JSON.parse(this.state.user_details).id;
+    console.log("addWishList_User_id "+user_id);
+    console.log("addWishList_Item_id "+this.state.item_id);
+
+   
+      fetch('http://10.10.24.184:8080/api/wishList/addWishListList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        
+        body: JSON.stringify({
+          userId:user_id,
+          itemId:this.state.item_id
+          
+
+          // userId: 1,
+	        // itemId: 4
+        })
+   
+  })
+  // .then((response) => console.log(response))
+  .then((response) => {
+    console.log("in Item Details ",response)
+    console.log("in Item Details wishlist status ",response._bodyText)
+    alert(response._bodyText+" to wish list")
+
+  })
+  }
+  
+  wishlistHandler(data){
+      console.log("wishlistHandler in item Details "+data);
+
   }
 
   addOrder(){
     console.log("add order");
+
+    var user_id=JSON.parse(this.state.user_details).id;
+    console.log("addWishList_User_id "+user_id);
+    console.log("addWishList_Item_id "+this.state.item_id);
+
+   
+      fetch(' http://10.10.24.184:8080/api/order/addOrderList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        
+        body: JSON.stringify({
+          itemId:this.state.item_id,
+          userId:user_id,
+        })
+   
+  })
+  // .then((response) => console.log(response))
+  .then((response) => {
+    console.log("in Item Details add order ",response)
+    console.log("in Item Details add order status ",response._bodyText)
+    alert(response._bodyText+" to your orders")
+
+  })
   }
 
 
   async getMoreDetails(){    
     console.log("getMoreDetails in ItemDetails");
     try{
+      var item_id=await AsyncStorage.getItem("item_id");
+      var user_details=await AsyncStorage.getItem("user_details");
       var discount=await AsyncStorage.getItem("discount");
       var endDate=await AsyncStorage.getItem("endDate");
       var name=await AsyncStorage.getItem("name");
@@ -44,9 +108,16 @@ class ItemDetails extends Component {
       var oldPrice=await AsyncStorage.getItem("oldPrice");
       var photoUrl=await AsyncStorage.getItem("photoUrl");
       var startDate=await AsyncStorage.getItem("startDate"); 
+      var startDate=await AsyncStorage.getItem("startDate"); 
+      var startDate=await AsyncStorage.getItem("startDate"); 
+
 
       console.log("get more details in Item details $$$$$$ ");
 
+    console.log("get more details in Item details user_details "+ item_id);   
+    console.log("get more details in Item details user_details "+ user_details);   
+    // var user_detailsJson=JSON.parse(user_details);
+    // console.log("get more details in Item details user_details ",user_detailsJson ); 
     console.log("get more details in Item details "+ discount);
     console.log("get more details in Item details "+ endDate);
     console.log("get more details in Item details "+ name);
@@ -56,6 +127,8 @@ class ItemDetails extends Component {
     console.log("get more details in Item details "+ startDate);
 
     this.setState({
+      item_id:item_id,
+      user_details:user_details,
       discount:discount,
       endDate:endDate,
       name:name,
@@ -65,6 +138,8 @@ class ItemDetails extends Component {
       startDate:startDate,
     })
 
+    console.log("get more details in Item details in state ", this.state.item_id);
+    console.log("get more details in Item details in state ", this.state.user_details);
     console.log("get more details in Item details in state "+ this.state.discount);
     console.log("get more details in Item details in state "+ this.state.endDate);
     console.log("get more details in Item details in state "+ this.state.name);
