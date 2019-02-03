@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import {View,ScrollView,ImageBackground,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-} from 'react-native';
+import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
 import CategoryView from '../../components/categoryView/CategoryView'
  
 class DrawerScreen4 extends Component{
 constructor(props){
     super(props);
-
 } 
 
 componentDidMount(){
@@ -23,11 +18,11 @@ componentDidMount(){
         return(
         <View style={StyleSheet.container}>
         <CustomHeader/>
-        <ScrollView>
-            <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}>
-                
-
+        <ScrollView >
+            <ImageBackground source={require('./../../Images/solid.jpg')} style={styles.background}>
+                <View style={styles.banner}>
                 <CategoryView />
+                </View>
             </ImageBackground>
         </ScrollView>
         </View>
@@ -45,52 +40,29 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    /*banner:{
+    // banner:{
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     shadowColor: '#ffccbc',
+    //     shadowOffset: {width: 0, height: 2},
+    //     shadowOpacity: 0.8,
+    //     shadowRadius:3,
+    //     elevation:1,
+    //     alignSelf:'center',
+    //     padding: 5,
+    //     width: '70%',
+    //     backgroundColor: 'rgba(130, 138, 139,0.5)',
+    //     marginBottom: 30,
+    //     marginTop: 30,
+    // },
+    background:{
+        width:'100%',
+        height:'100%',
         flex: 1,
-        resizeMode: 'stretch',
+        //backgroundColor:'rgb(27, 14, 107)',
         justifyContent: 'center',
-        alignItems:'stretch',
-    },*/
-    TextComponentStyle: {
-        fontSize: 28,
-        fontWeight: '800',
-        color: "#fff",
-        textAlign: 'center', 
-        marginBottom: 5,
-        padding : 10,
+        alignItems:'center',
     },
-    Textstyle: {
-        fontSize: 20,
-        alignItems: 'center',
-        fontWeight: '600',
-        color: "#fff",
-        textAlign: 'center', 
-        margin: 10,
-        padding : 10,
-    },
-    cont:{
-        //flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        shadowColor: '#ffccbc',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.8,
-        shadowRadius:3,
-        elevation:1,
-        alignSelf:'center',
-        padding: 5,
-        width: '70%',
-        backgroundColor: 'rgba(130, 138, 139,0.5)',
-        marginBottom: 30,
-        marginTop: 30,
-    },
-    btnn:{
-        width: '70%',
-        alignItems: 'center',
-        borderWidth: 3,
-        borderColor: '#fff',
-        margin: 10,
-        borderRadius: 5,
-    },
+
 
 });

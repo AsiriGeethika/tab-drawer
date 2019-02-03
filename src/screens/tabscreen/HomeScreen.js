@@ -17,14 +17,6 @@ render(){
         <View style={styles.container}>
           <Text style={styles.txt1}>Sign in with OfferMe</Text>
           <Text style={styles.txt2}>We can personalize your OfferMe experience</Text>
-            {/* <View style={styles.cont}>   
-              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Signin')}>
-                <Text style={styles.buttonText}>Sign In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Reg')}>
-                <Text style={styles.buttonText}>Register</Text>
-              </TouchableOpacity>
-            </View> */}
         </View>
       </ImageBackground>
             

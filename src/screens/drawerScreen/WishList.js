@@ -80,15 +80,14 @@ getWishlist(){
             return(
                 <ScrollView style={styles.container1}>
                 <CustomHeader/>
-                  <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
-                      {/* <View style={styles.container}>
+                <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
+                      <View style={styles.container}>
                           <Text style={styles.txt1}>Wish List</Text>
-                      </View> */}
-                      
+                      </View>      
                 </ImageBackground>
                 <View>
-                        <ActivityIndicator size="large" color="red" />
-                    </View>
+                    <ActivityIndicator size="large" color="red" />
+                </View>
                 </ScrollView>  
 
             )
@@ -97,8 +96,8 @@ getWishlist(){
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
-                 <View key={key} style={styles.col2}  >
-                <Text style={styles.add}>{val.discount}% Off</Text>
+                 <View key={key} style={styles.col}  >
+                {/*<Text style={styles.add}>{val.discount}% Off</Text>*/}
                 {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
                 {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
                 
@@ -107,12 +106,12 @@ getWishlist(){
                     source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
                 />
                 <Text style={styles.item}>{val.name}</Text>
-                {/* str.substring(1, 4); */}
+                {/* str.substring(1, 4); 
                 <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>
+                <Text style={styles.add1}>{val.oldPrice}</Text>*/}
                 <Text style={styles.add2}>{val.newPrice}</Text>
 
-                <TouchableOpacity style={{backgroundColor:'red'}}
+                <TouchableOpacity style={styles.del}
                     onPress={()=>this.deleteWishlist()}
                 >
                     <Text>
@@ -128,9 +127,9 @@ getWishlist(){
             <ScrollView style={styles.container1}>
             <CustomHeader/>
               <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
-                  {/* <View style={styles.container}>
+                   <View style={styles.container}>
                       <Text style={styles.txt1}>Wish List</Text>
-                  </View> */}
+                  </View>
                
             </ImageBackground>
             <ScrollView>
@@ -165,40 +164,57 @@ export default DrawerScreen1;
             color: '#000',
             fontWeight: '700',
         },
-        btn1:{
-            marginTop: 30,
-            marginBottom: 20,
-            marginLeft: 20,
-            marginRight: 20,
-            padding: 5,
-            backgroundColor: 'rgba(234, 162, 162,0.8)',
+        col:{
+            flex:1,
+            padding:5,
+            borderColor:'#0B0682',
+            borderWidth: 2,
+            marginBottom: 10,
+            width:'100%',
+            alignItems: 'center',
+            backgroundColor: '#fff',
         },
-          buttonText:{
-            fontFamily: 'Cochin',
-          fontSize: 16,
-          color: '#ffffff',
-          fontWeight: 'bold',
-          },
-          cont:{
+        del:{
+            backgroundColor:'red',
+            padding:5,
+        },
+        cont:{
             flex: 2,
             alignItems: 'center',
             justifyContent: 'space-between',
             flexDirection: 'row',
-          },
-          container:{
+        },
+        container:{
             flex: 2,
-              alignItems: 'center',
-              justifyContent: 'center',
-              shadowColor: '#ffccbc',
-              shadowOffset: {width: 0, height: 2},
-              shadowOpacity: 0.8,
-              shadowRadius:3,
-              elevation:1,
-              alignSelf:'center',
-              padding: 25,
-              width: '70%',
-              backgroundColor: 'rgba(234, 162, 162,0.5)',
-              marginBottom: 50,
-              marginTop: 50,
-          },
-        })
+            alignItems: 'center',
+            justifyContent: 'center',
+            shadowColor: '#ffccbc',
+            shadowOffset: {width: 0, height: 2},
+            shadowOpacity: 0.8,
+            shadowRadius:3,
+            elevation:1,
+            alignSelf:'center',
+            padding: 25,
+            width: '70%',
+            backgroundColor: 'rgba(234, 162, 162,0.5)',
+            marginBottom: 50,
+            marginTop: 50,
+        },
+        item:{
+            fontFamily: 'Cochin',
+            fontSize: 18,
+            color: '#1C2331',
+            fontWeight: '500',
+            alignItems: 'center',
+            paddingBottom: 5,
+            marginTop: 10,
+        },
+        add2:{
+            fontFamily: 'Cochin',
+            fontSize: 20,
+            color: '#d50000',
+            fontWeight: 'bold',
+            alignItems: 'center',
+            paddingBottom: 5,
+        },
+    })

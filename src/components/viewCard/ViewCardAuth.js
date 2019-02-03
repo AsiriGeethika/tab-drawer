@@ -136,7 +136,7 @@ class ViewCardAuth extends Component{
                 <Text style={styles.add1}>{val.oldPrice}</Text>
                 <Text style={styles.add2}>{val.newPrice}</Text>
 
-                <TouchableOpacity style={{backgroundColor:'red'}}
+                <TouchableOpacity style={styles.more}
                     onPress={()=>this.viewMoreDetails(val.id,val.discount, val.endDate, val.name, val.newPrice, val.oldPrice, val.photoUrl, val.startDate)}
                 >
                     <Text>
@@ -173,7 +173,10 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         margin: 5,
         marginBottom: 5,
-        
+    },
+    more:{
+        backgroundColor:'red',
+        padding:5,
     },
     container2:{
         flex: 2,

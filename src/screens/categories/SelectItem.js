@@ -67,7 +67,7 @@ render(){
 
             <ScrollView>
 
-              <ImageBackground source={require('./../../Images/food.jpg')} style={styles.banner}>
+              <ImageBackground source={require('./../../Images/cate.jpg')} style={styles.banner}>
               <View style={styles.container}>
                   <Text style={styles.txt1}>{name}</Text>
                   <View style={styles.cont}>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
           width: '70%',
           alignSelf:'center',
           padding: 25,
-          backgroundColor: 'rgba(239, 105, 9,0.5)',
+          backgroundColor: 'rgba(170, 169, 177,0.5)',
           marginBottom: 50,
           marginTop: 50,
         },

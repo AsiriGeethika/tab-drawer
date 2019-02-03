@@ -15,7 +15,7 @@ constructor(props){
 
             <ScrollView>
 
-              <ImageBackground source={require('./../../Images/food.jpg')} style={styles.banner}>
+              <ImageBackground source={require('./../../Images/cate.jpg')} style={styles.banner}>
               <View style={styles.container}>
                   <Text style={styles.txt1}>Food</Text>
                   <View style={styles.cont}>

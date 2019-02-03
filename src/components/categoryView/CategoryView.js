@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {View,ScrollView,ImageBackground,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    ActivityIndicator,
-    AsyncStorage
-} from 'react-native';
+import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
 import { withNavigation } from 'react-navigation'
 
@@ -46,37 +40,6 @@ getCategory(){
   }
 
 
-    //  render(){
-    //     return(
-    //     <View style={StyleSheet.container}>
-    //     <CustomHeader/>
-    //     <ScrollView>
-    //         <ImageBackground source={require('./../../Images/Background.jpg')} style={{width:'100%', height:'100%'}}>
-    //             {/* <View style={styles.cont}>
-    //                 <Text style= {styles.TextComponentStyle}>Categories</Text>
-    //                 <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Cloth')}>
-    //                     <Text  style= {styles.Textstyle}>Clothing</Text>
-    //                 </TouchableOpacity>
-    //                 <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Food')}>
-    //                     <Text  style= {styles.Textstyle}>Food</Text>
-    //                 </TouchableOpacity>
-    //                 <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Fin')}>
-    //                     <Text  style= {styles.Textstyle}>Finance</Text>
-    //                 </TouchableOpacity>
-    //                 <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Serv')}>
-    //                     <Text  style= {styles.Textstyle}>Services</Text>
-    //                 </TouchableOpacity>
-    //                 <TouchableOpacity style={styles.btnn} onPress={() => this.props.navigation.navigate('Other')}>
-    //                     <Text  style= {styles.Textstyle}>Other</Text>
-    //                 </TouchableOpacity>
-    //             </View> */}
-    //             <Text>Work..!</Text>
-    //         </ImageBackground>
-    //     </ScrollView>
-    //     </View>
-    //      )
-    //  }
-
     async dataHandler(name, id){
         console.log("I am at DataHandler "+name+" "+id);
 
@@ -101,17 +64,17 @@ getCategory(){
             )
         }else{
             console.log("getCategoryis else");
-            console.log(" getCategoryis in state ", this.state.data);
+            console.log(" getCategories in state ", this.state.data);
             let View_Card=this.state.data.map((val, key)=>{
                return(
                    //Style here
-               <View key={key} >
+               <View key={key} style={styles.btnn}>
                     <TouchableOpacity
                         onPress={() => this.dataHandler(val.name, val.id)}
                         
                         // this.props.navigator.navigate
                     >
-                        <Text>{val.name}}</Text>
+                        <Text style={styles.Textstyle}>{val.name}</Text>
                     </TouchableOpacity>
                </View>
                //style end
@@ -120,8 +83,9 @@ getCategory(){
     
         return(
             <ScrollView>
-                <Text>getCategoryis</Text>
-                {View_Card}
+                <View style={styles.cont}>
+                  {View_Card}
+                </View>
             </ScrollView>
          )
         }
@@ -133,58 +97,34 @@ export default withNavigation(DrawerScreen4);
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    /*banner:{
-        flex: 1,
-        resizeMode: 'stretch',
-        justifyContent: 'center',
-        alignItems:'stretch',
-    },*/
-    TextComponentStyle: {
-        fontSize: 28,
-        fontWeight: '800',
-        color: "#fff",
-        textAlign: 'center', 
-        marginBottom: 5,
-        padding : 10,
-    },
     Textstyle: {
         fontSize: 20,
         alignItems: 'center',
         fontWeight: '600',
         color: "#fff",
         textAlign: 'center', 
-        margin: 10,
+        //margin: 10,
         padding : 10,
     },
-    cont:{
-        //flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        shadowColor: '#ffccbc',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.8,
-        shadowRadius:3,
-        elevation:1,
-        alignSelf:'center',
-        padding: 5,
-        width: '70%',
-        backgroundColor: 'rgba(130, 138, 139,0.5)',
-        marginBottom: 30,
-        marginTop: 30,
-    },
     btnn:{
-        width: '70%',
+        
         alignItems: 'center',
+        justifyContent:'space-around',
         borderWidth: 3,
         borderColor: '#fff',
         margin: 10,
+        padding:10,
         borderRadius: 5,
+        fontSize:18,
+        fontWeight:'500',
+    },
+    cont:{
+        
+        marginTop:50,
+        marginBottom:50,
+        padding:20,
+        backgroundColor:'rgba(161, 159, 171,0.4)'
+
     },
 
 });

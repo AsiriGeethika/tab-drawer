@@ -10,10 +10,17 @@ constructor(props){
         isLoading:true
     })
 
+
 }
-componentDidMount(){
-    this.getuser_id();
+// componentDidMount(){
+//     this.getuser_id();
+// }
+
+componentWillMount(){
+  this.getuser_id();
 }
+
+
 
 async getuser_id(){    
     console.log("wishlist in getuser_id");

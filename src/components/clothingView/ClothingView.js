@@ -6,37 +6,7 @@ import {Button,Body,Left,Icon,Right} from "native-base";
 
 
 
-const data=[
-    {
-       discount:'50',
-       photoUrl:'csfsd.png',
-       name:'Ladies Shoes',
-       startDate:'15th Dec',
-       endDate: '31st Dec',
-       oldPrice: '3500 LKR',
-       newPrice:'1750 LKR'
-    },
 
-    {
-        discount:'20',
-        photoUrl:'csfsd.png',
-        name:'Nike Sports Shoes',
-        startDate:'15th Dec',
-        endDate: '31st Dec',
-        oldPrice: '3500 LKR',
-        newPrice:'1750 LKR'
-     },
-
-    {
-       discount:'30',
-       photoUrl:'csfsd.png',
-       name:'Nike Sports Shoes',
-       startDate:'15th Dec',
-       endDate: '31st Dec',
-       oldPrice: '3500 LKR',
-       newPrice:'1750 LKR'
-    }
-]
 class ClothingView extends Component{
     constructor(props){
         super(props);
