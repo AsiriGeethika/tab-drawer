@@ -12,7 +12,7 @@ constructor(props){
         <CustomHeader/>
           <ImageBackground source={require('./../../Images/OrderScreen.jpg')} style={styles.banner}>
               <View style={styles.container}>
-                  <Text style={styles.txt1}>Orders</Text>
+                  <Text style={styles.txt1}>My Offers</Text>
               </View>
         </ImageBackground>
         </ScrollView>  

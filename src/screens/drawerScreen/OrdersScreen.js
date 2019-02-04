@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View,Text,StyleSheet,TouchableOpacity,ScrollView,Image,ImageBackground,AsyncStorage,ActivityIndicator} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
  
-class TabScreen3 extends Component{
+class DrawerScreen5 extends Component{
 constructor(props){
     super(props);
     this.state=({
@@ -90,14 +90,6 @@ getOrderlist(){
            <ImageBackground source={require('./../../Images/OrderScreen.jpg')} style={styles.banner}>
                <View style={styles.container}>
                    <Text style={styles.txt1}>Orders</Text>
-                   <View style={styles.cont}>
-                   <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Profile')}>
-                     <Text style={styles.buttonText}>Profile</Text>
-                   </TouchableOpacity>
-             <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Wish')}>
-               <Text style={styles.buttonText}>Wish List</Text>
-             </TouchableOpacity>
-             </View>
                </View>
          </ImageBackground>
                 <View>
@@ -111,29 +103,10 @@ getOrderlist(){
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
-                 <View key={key} style={styles.col2}  >
-                <Text style={styles.add}>{val.discount}% Off</Text>
-                {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
-                {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
-                
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                />
-                <Text style={styles.item}>{val.name}</Text>
-                {/* str.substring(1, 4); */}
-                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>
-                <Text style={styles.add2}>{val.newPrice}</Text>
-
-                <TouchableOpacity style={{backgroundColor:'red'}}
-                    onPress={()=>this.deleteorderlist()}
-                >
-                    <Text>
-                        Delete from order list
-                    </Text>
-                </TouchableOpacity>
-                
+                <View key={key} style={styles.col}  >
+                    <Image style={styles.image} source={{uri: val.photoUrl}}/>
+                    <Text style={styles.item}>{val.name}</Text>
+                    <Text style={styles.add2}>{val.newPrice} LKR</Text>
                 </View>
             )
         })
@@ -144,14 +117,6 @@ getOrderlist(){
            <ImageBackground source={require('./../../Images/OrderScreen.jpg')} style={styles.banner}>
                <View style={styles.container}>
                    <Text style={styles.txt1}>Orders</Text>
-                   <View style={styles.cont}>
-                   <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Profile')}>
-                     <Text style={styles.buttonText}>Profile</Text>
-                   </TouchableOpacity>
-             <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Wish')}>
-               <Text style={styles.buttonText}>Wish List</Text>
-             </TouchableOpacity>
-             </View>
                </View>
          </ImageBackground>
             <ScrollView>
@@ -167,7 +132,7 @@ getOrderlist(){
 
     }
      
-export default TabScreen3;
+export default DrawerScreen5;
 
     const styles = StyleSheet.create({
     container1: {
@@ -186,6 +151,16 @@ export default TabScreen3;
         color: '#000000',
         fontWeight: '900',
       },
+      col:{
+        flex:1,
+        padding:5,
+        borderColor:'#0B0682',
+        borderWidth: 2,
+        marginBottom: 10,
+        width:'100%',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
       btn1:{
         marginTop: 30,
         marginBottom: 20,
@@ -221,4 +196,28 @@ export default TabScreen3;
           marginBottom: 50,
           marginTop: 50,
       },
+      item:{
+        fontFamily: 'Cochin',
+        fontSize: 18,
+        color: '#1C2331',
+        fontWeight: '500',
+        alignItems: 'center',
+        paddingBottom: 5,
+        marginTop: 10,
+    },
+    add2:{
+        fontFamily: 'Cochin',
+        fontSize: 20,
+        color: '#d50000',
+        fontWeight: 'bold',
+        alignItems: 'center',
+        paddingBottom: 5,
+    },
+    image:{
+        width: '100%',
+        height: 150,
+        alignItems: 'center',
+        justifyContent: 'center',
+        resizeMode: 'contain',
+    },
     })

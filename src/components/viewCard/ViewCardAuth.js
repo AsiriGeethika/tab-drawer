@@ -1,14 +1,14 @@
-//Default View Card
+//Registered user's view card
 
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
+import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
-import CustomImage from './CustomImage';
-const host = require('./../../src/config/config')
+import { withNavigation } from 'react-navigation';
+const host = require('./../../../src/config/config');
 
 
-class ViewCard extends Component{
+class ViewCardAuth extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -42,8 +42,42 @@ class ViewCard extends Component{
             .done();
       }
 
+      async viewMoreDetails(item_id, discount, endDate, name, newPrice, oldPrice, photoUrl, startDate){
+
+        console.log("viewMoreDetails in View Auth Card "+ item_id.toString());
+          console.log("viewMoreDetails in View Auth Card "+ discount.toString());
+          console.log("viewMoreDetails in View Auth Card "+ endDate.toString());
+          console.log("viewMoreDetails in View Auth Card "+ name.toString());
+          console.log("viewMoreDetails in View Auth Card "+ newPrice.toString());
+          console.log("viewMoreDetails in View Auth Card "+ oldPrice.toString());
+          console.log("viewMoreDetails in View Auth Card "+ photoUrl.toString());
+          console.log("viewMoreDetails in View Auth Card "+ startDate.toString());
+
+          try{
+            await AsyncStorage.setItem("item_id", item_id.toString());
+            await AsyncStorage.setItem("discount", discount.toString());
+            await AsyncStorage.setItem("endDate", endDate.toString());
+            await AsyncStorage.setItem("name", name.toString());
+            await AsyncStorage.setItem("newPrice", newPrice.toString());
+            await AsyncStorage.setItem("oldPrice", oldPrice.toString());
+            await AsyncStorage.setItem("photoUrl", photoUrl.toString());
+            await AsyncStorage.setItem("startDate", startDate.toString()); 
+
+            console.log("set item details async storage %%%%%% ");
+    
+        }catch(error){
+            console.log("in dataHandler login token set ",error);
+        }
+        
+        this.props.navigation.navigate('ItemDetails')
+      }
+
+      setSelectData(){
+        console.log("setSelectData in View Auth Card ", data);
+
+      }
+
       render(){
-          //var url=this.state.data.photoUrl;
         if(this.state.isLoading){
             return(
                 <View>
@@ -54,7 +88,6 @@ class ViewCard extends Component{
         }else{
             console.log("View Card is else");
             let View_Card=this.state.data.map((val, key)=>{
-        // let View_Card=data.map((val, key)=>{
             return(
                 
                 <View key={key} style={styles.col2}  >
@@ -64,6 +97,15 @@ class ViewCard extends Component{
                 <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
                 <Text style={styles.add1}>{val.oldPrice} LKR</Text>
                 <Text style={styles.add2}>{val.newPrice} LKR</Text>
+
+                <TouchableOpacity style={styles.more}
+                    onPress={()=>this.viewMoreDetails(val.id,val.discount, val.endDate, val.name, val.newPrice, val.oldPrice, val.photoUrl, val.startDate)}
+                >
+                    <Text style={styles.moreText}>
+                        More Details
+                    </Text>
+                </TouchableOpacity>
+                
                 </View>
             )
         })
@@ -77,7 +119,7 @@ class ViewCard extends Component{
      
     }
 }
-export default ViewCard;
+export default withNavigation(ViewCardAuth);
 
 const styles = StyleSheet.create({
     container:{
@@ -93,12 +135,10 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         margin: 5,
         marginBottom: 5,
-        
     },
-    date:{
-        fontFamily: 'Cochin',
-        fontSize: 14,
-        color: 'rgb(193, 66, 66)',
+    more:{
+        backgroundColor:'red',
+        padding:5,
     },
     container2:{
         flex: 2,
@@ -134,6 +174,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'center',
         padding: 5,
+    },
+    date:{
+        fontFamily: 'Cochin',
+        fontSize: 14,
+        color: 'rgb(193, 66, 66)',
     },
     add:{
       fontFamily: 'Cochin',
@@ -184,6 +229,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         resizeMode: 'contain',
+    },
+    moreText:{
+        fontFamily: 'Cochin',
+        fontSize: 16,
+        color: '#000000',
+        fontWeight: 'bold',
     },
   
   });

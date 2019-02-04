@@ -34,7 +34,7 @@ const TabNavigation = createMaterialTopTabNavigator({
         }
     },
 
-    Orders:{
+     MyOffer:{
         screen:STabScreen3,
         navigationOptions: {
             tabBarLabel: "",

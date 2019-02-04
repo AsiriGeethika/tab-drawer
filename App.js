@@ -4,6 +4,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import Login from './src/authScreen/login/Login';
+import DefaultScreen from './src/screens/Default/DefaultScreen'
 import ForgotPassword from './src/authScreen/forgotPassword/ForgotPassword';
 import TabNavigator from './src/navigation/tabNavigation/TabNavigator';
 import DrawerNavigator from './src/navigation/drawerNavigation/DrawerNavigator';
@@ -16,12 +17,16 @@ import TabScreen2 from './src/screens/tabscreen/ProfileScreen';
 import DrawerScreen4 from './src/screens/drawerScreen/Categories';
 import ViewCard from './src/components/ViewCard';
 import ItemDetails from './src/screens/itemDetails/ItemDetails';
-import Category1 from './src/screens/categories/Food';
-import Category3 from './src/screens/categories/Service';
-import Category2 from './src/screens/categories/Clothing';
-import Category4 from './src/screens/categories/Finance';
-import Category5 from './src/screens/categories/Others';
+// import Category1 from './src/screens/categories/Food';
+// import Category3 from './src/screens/categories/Service';
+// import Category2 from './src/screens/categories/Clothing';
+// import Category4 from './src/screens/categories/Finance';
+// import Category5 from './src/screens/categories/Others';
 import Select from './src/authScreen/login/Select';
+import SelectItem from './src/screens/categories/SelectItem';
+import DrawerScreen5 from './src/screens/drawerScreen/OrdersScreen';
+import RegisterSuccess from './src/screens/LoginScreen/RegisterSuccess';
+
 
 import HScreen from './src/Sup.screens/tabscreen/HScreen';
 import STabScreen1 from './src/Sup.screens/tabscreen/HomeScreen';
@@ -36,6 +41,7 @@ import SupRegister from './src/Sup.screens/LoginScreen/Register';
 import SSignin from './src/Sup.screens/LoginScreen/SignIn';
 import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
 import createAd from './src/Sup.screens/tabscreen/createAd';
+//import simageup from './src/Sup.screens/tabscreen/imageup';
 
 export default class App extends Component{
   render() {
@@ -45,9 +51,13 @@ export default class App extends Component{
   }
 }
 
-const AppStackNavigator = createStackNavigator({  
+const AppStackNavigator = createStackNavigator({ 
+  
   Login:{screen:Login},
   Selection:{screen:Select},
+  DefaultScreen:{screen:DefaultScreen},
+  SelectItem:{screen:SelectItem},
+  DrawerScreen4:{screen:DrawerScreen4},
   DrewerNav:{screen:DrawerNavigator},
   Reg:{screen: Register},
   ItemDetails:{screen:ItemDetails},
@@ -58,14 +68,15 @@ const AppStackNavigator = createStackNavigator({
   Wish:{screen:DrawerScreen1},
   Profile:{screen:TabScreen2},
   Categories:{screen:DrawerScreen4},
-  Food: {screen:Category1},
-  Cloth:{screen:Category2},
-  Serv : {screen:Category3},
-  Fin:{screen:Category4},
-  Other:{screen:Category5},
+  RegisterSuccess:{screen:RegisterSuccess},
+  // Food: {screen:Category1},
+  // Cloth:{screen:Category2},
+  // Serv : {screen:Category3},
+  // Fin:{screen:Category4},
+  // Other:{screen:Category5},
 
   SHome: {screen:STabScreen1},
-  Smsg:{screen:STabScreen4},
+  //Smsg:{screen:STabHScreenScreen4},
   Sorders:{screen:STabScreen3},
   Sprof:{screen:STabScreen2},
   Sabout:{screen:SDrawerScreen2},
@@ -77,6 +88,7 @@ const AppStackNavigator = createStackNavigator({
   SDrawerNav:{screen:SDrawerNav},
   Ad:{screen:createAd},
   HScreen:{screen:HScreen},
+ // simageup:{screen:simageup},
 },
 
   navigationOptions={

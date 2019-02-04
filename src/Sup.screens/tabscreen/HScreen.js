@@ -10,7 +10,7 @@ constructor(props){
 
 } 
 myfun=()=>{
-  alert('you are noy sign yet');
+  alert('Please sign in to create an advertisement.');
 }
      render(){
         return(

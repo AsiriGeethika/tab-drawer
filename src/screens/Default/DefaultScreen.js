@@ -2,21 +2,29 @@ import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,} from 'react-native';
 import ViewCard from '../../components/ViewCard';
 import CustomHeader from '../../components/Header/Header';
-import ViewCardAuth from '../../components/viewCard/ViewCardAuth';
  
-class TabScreen1 extends Component{
+class DefaultScreen extends Component{
 constructor(props){
     super(props);
 
 } 
-render(){
+
+render(){ 
   return(
     <ScrollView style={styles.container1}>
       <CustomHeader/>
       <ImageBackground source={require('./../../Images/ww.jpg')} style={styles.banner}>
         <View style={styles.container}>
-          <Text style={styles.txt1}>Welcome to OfferMe</Text>
-          <Text style={styles.txt2}>You can find best products with best offers </Text>
+          <Text style={styles.txt1}>Sign in with OfferMe</Text>
+          <Text style={styles.txt2}>We can personalize your OfferMe experience</Text>
+            <View style={styles.cont}>   
+              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Signin')}>
+                <Text style={styles.buttonText}>Sign In</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.btn1} onPress={() => this.props.navigation.navigate('Reg')}>
+                <Text style={styles.buttonText}>Register</Text>
+              </TouchableOpacity>
+            </View>
         </View>
       </ImageBackground>
             
@@ -26,15 +34,13 @@ render(){
         </TouchableOpacity>
       </View>
               
-      {/* <ViewCard/> */}
-
-      <ViewCardAuth />
+      <ViewCard/>
     </ScrollView>   
   )
   }
 }
  
-export default TabScreen1;
+export default DefaultScreen;
 
 const styles = StyleSheet.create({
     container2: {

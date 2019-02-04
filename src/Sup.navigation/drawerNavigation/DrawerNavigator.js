@@ -32,7 +32,7 @@ export default createDrawerNavigator({
   SDrawerScreen4: {
     screen: SDrawerScreen4,
     navigationOptions: {
-      drawerLabel: 'My Offers',
+      drawerLabel: 'Received Orders',
       drawerIcon: ({ tintColor }) => <Icon name="ios-cart" size={17} />,
     }
   },

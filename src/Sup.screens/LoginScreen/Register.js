@@ -11,17 +11,19 @@ class SupRegister extends Component {
   constructor() {
     super()
     this.state = {
+        UsersName: '',
         UserName: '',
         UserAddress: '',
         UserEmail: '',
         UserContact: '',
+        //Userroll:'',
         UserPassword: ''
     }
   }
  
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.6.39/user_project/user_registration.php', {
+  fetch('http://10.10.6.39:8080/api/auth/signup', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -29,11 +31,13 @@ UserRegistrationFunction = () =>{
     },
     body: JSON.stringify({
   
-        name: this.state.UserName,
+        name: this.state.UsersName,
+        username: this.state.UserName,
         address: this.state.UserAddress,
         email: this.state.UserEmail,
-        contact: this.state.UserContact,
-        password: this.state.UserPassword
+        telephone: this.state.UserContact,
+        password: this.state.UserPassword,
+        userRoll: 2
   
     })
     
@@ -41,7 +45,19 @@ UserRegistrationFunction = () =>{
   }).then((response) => response.json())
         .then((responseJson) => {
   // Showing response message coming from server after inserting records.
-          Alert.alert(responseJson);  
+         // Alert.alert(JSON.stringify(responseJson));
+          if(responseJson.success === true )
+        {
+ 
+          Alert.alert(JSON.stringify(responseJson.message));
+            this.props.navigation.navigate('HScreen');
+ 
+        }
+        else{
+ 
+          Alert.alert(JSON.stringify(responseJson.message));
+          this.props.navigation.navigate('Sreg');
+        }  
         }).catch((error) => {
           console.error(error);
         });
@@ -55,7 +71,13 @@ UserRegistrationFunction = () =>{
       <Text style= {styles.title}>Supplier Registration</Text>
         <TextInput
           placeholder="Enter User Name"
-          onChangeText={name => this.setState({UserName : name})}
+          onChangeText={name => this.setState({UsersName : name})}
+          underlineColorAndroid='transparent'
+          style={styles.TextInputStyleClass}
+          />
+          <TextInput
+          placeholder="Enter UserName"
+          onChangeText={username => this.setState({UserName : username})}
           underlineColorAndroid='transparent'
           style={styles.TextInputStyleClass}
           />

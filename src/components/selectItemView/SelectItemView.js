@@ -1,30 +1,49 @@
-//Default View Card
+//Category wise View card
 
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
+import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
-import CustomImage from './CustomImage';
-const host = require('./../../src/config/config')
+// import CustomImage from './CustomImage';
 
-
-class ViewCard extends Component{
+class SelectItemView extends Component{
     constructor(props){
         super(props);
         this.state={
             data:null,
-            isLoading:true
-            
+            isLoading:true,
+            id:''            
         }
     }
 
     componentDidMount(){
+        console.log("I am in SelectView in component Did Mount");
+        this.getItemId();
+        // this.getAllJob()
+    }
+
+    async getItemId(){
+        console.log("I am in selectItem View in getData");
+    try{
+        let id=await AsyncStorage.getItem("category_id");
+        console.log("get async storage selectItemView "+id);
+        this.setState({
+            id:id,
+            // isLoading:false
+        })
+        console.log("get async storage in state in select item "+this.state.id+" "+this.state.isLoading);
         this.getAllJob()
+
+
+
+    }catch(error){
+        console.log("in dataHandler at selectItem ",error);
+    }
     }
     
     getAllJob(){
-     
-        fetch(host.config.hostname+'/api/home/all', {
+        fetch(`http://10.10.24.184:8080/api/home/${this.state.id}`, {
+
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -36,14 +55,15 @@ class ViewCard extends Component{
                 data:res,
                 isLoading:false
             })
-            console.log("Set state data ", this.state.data);
+            console.log("Set state data selectItemView fdd ", this.state.data);
             console.log("Set state isLoading ", this.state.isLoading);
             })
             .done();
       }
 
       render(){
-          //var url=this.state.data.photoUrl;
+          
+          console.log("Select item view render");
         if(this.state.isLoading){
             return(
                 <View>
@@ -56,14 +76,15 @@ class ViewCard extends Component{
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
-                
                 <View key={key} style={styles.col2}  >
                 <Text style={styles.add}>{val.discount}% Off</Text>
                 <Image style={styles.image} source={{uri: val.photoUrl}}/>
                 <Text style={styles.item}>{val.name}</Text>
+                {/* str.substring(1, 4); */}
                 <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
                 <Text style={styles.add1}>{val.oldPrice} LKR</Text>
                 <Text style={styles.add2}>{val.newPrice} LKR</Text>
+
                 </View>
             )
         })
@@ -77,7 +98,7 @@ class ViewCard extends Component{
      
     }
 }
-export default ViewCard;
+export default SelectItemView;
 
 const styles = StyleSheet.create({
     container:{
@@ -94,11 +115,6 @@ const styles = StyleSheet.create({
         margin: 5,
         marginBottom: 5,
         
-    },
-    date:{
-        fontFamily: 'Cochin',
-        fontSize: 14,
-        color: 'rgb(193, 66, 66)',
     },
     container2:{
         flex: 2,
@@ -117,6 +133,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#fff',
       
+    },
+    date:{
+        fontFamily: 'Cochin',
+        fontSize: 14,
+        color: 'rgb(193, 66, 66)',
     },
     col2:{
       flex: 1,

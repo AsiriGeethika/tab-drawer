@@ -4,12 +4,14 @@ import { Container, Header, Content, Button, Text } from 'native-base';
  
 class Select extends Component{
 constructor(props){
-    super(props);
+    super(props); 
 
 } 
 
     loginHandler=()=>{
-        this.props.navigation.navigate('DrewerNav')
+        // this.props.navigation.navigate('DrewerNav')
+        console.log("Press Customer");
+        this.props.navigation.navigate('DefaultScreen')
     }
     loginHandler1=()=>{
         this.props.navigation.navigate('HScreen')
