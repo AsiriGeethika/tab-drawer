@@ -1,6 +1,7 @@
 import { StyleSheet, View,TouchableOpacity, TextInput, Button,KeyboardAvoidingView, Text, Alert, ScrollView } from 'react-native';
 import React, { Component} from 'react';
 import CustomHeader from '../../components/Header/Header';
+const host = require('./../../../src/config/config');
 
 
 class Register extends Component { 
@@ -23,7 +24,7 @@ class Register extends Component {
  
 UserRegistrationFunction = () =>{
  
-  fetch('http://10.10.24.184:8080/api/auth/signup', {
+  fetch(host.config.hostname+'/api/auth/signup', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -46,7 +47,7 @@ UserRegistrationFunction = () =>{
           if(responseJson.success === true)
           {
             Alert.alert(JSON.stringify(responseJson.message));
-              this.props.navigation.navigate('Profile'); 
+              this.props.navigation.navigate('RegisterSuccess'); 
           }
           else{
             Alert.alert(JSON.stringify(responseJson.message));
@@ -64,6 +65,7 @@ UserRegistrationFunction = () =>{
         <CustomHeader/>
       <View style={styles.MainContainer}>
       <Text style= {styles.title}>Customer Registration</Text>
+      <KeyboardAvoidingView>
       <TextInput
           placeholder="Enter Your Name"
           onChangeText={name => this.setState({Name : name})}
@@ -107,11 +109,15 @@ UserRegistrationFunction = () =>{
           style={styles.TextInputStyleClass}
           secureTextEntry={true}
           />
+          </KeyboardAvoidingView>
  
         <TouchableOpacity  style={styles.button} onPress={this.UserRegistrationFunction}>
             <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity> 
-      </View>       
+
+
+        <Button title="Back to Home" onPress={()=>this.props.navigation.navigate('DefaultScreen')} style={styles.btn}/>
+           </View>       
       </ScrollView>
       //</KeyboardAvoidingView>
     );

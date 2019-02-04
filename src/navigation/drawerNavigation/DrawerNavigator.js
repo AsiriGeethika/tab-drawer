@@ -7,7 +7,7 @@ import DrawerScreen1 from '../../screens/drawerScreen/WishList'
 import DrawerScreen2 from '../../screens/drawerScreen/AboutUs'
 import DrawerScreen3 from '../../screens/drawerScreen/Settings'
 import Logout from '../../authScreen/logout/Logout';
-//import DrawerScreen4 from '../../screens/drawerScreen/Categories';
+import DrawerScreen5 from '../../screens/drawerScreen/OrdersScreen';
 // import { Right } from 'native-base';
 
 const CustomDrawerComponent = (props)=>(
@@ -30,13 +30,13 @@ export default createDrawerNavigator({
       drawerIcon: ({ tintColor }) => <Icon name="home" size={17} />,
     }
   },
- /* DrawerScreen4: {
-    screen: DrawerScreen4,
+  DrawerScreen5: {
+    screen: DrawerScreen5,
     navigationOptions: {
-      drawerLabel: 'Categories',
-      drawerIcon: ({ tintColor }) => <Icon name="md-list-box" size={17} />,
+      drawerLabel: 'Orders',
+      drawerIcon: ({ tintColor }) => <Icon name="ios-cart" size={17} />,
     }
-  },*/
+  },
   DrawerScreen1: {
     screen: DrawerScreen1,
     navigationOptions: {
@@ -60,12 +60,11 @@ export default createDrawerNavigator({
       drawerIcon: ({ tintColor }) => <Icon name="ios-settings" size={17} />,
     }
   },
-
   Logout: {
     screen: Logout,
     navigationOptions: {
       drawerLabel: 'Logout',
-      drawerIcon: ({ tintColor }) => <Icon name="ios-settings" size={17} />,
+      drawerIcon: ({ tintColor }) => <Icon name="ios-log-out" size={17} />,
     }
   },
   

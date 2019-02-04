@@ -4,7 +4,7 @@ import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity} from 'react-nati
 import {Button,Body,Left,Icon,Right} from "native-base";
 import CustomImage from './CustomImage';
 import axios from 'axios';
-
+const host = require('./../../src/config/config')
 
 const data=[
     {
@@ -41,7 +41,7 @@ class ViewCard extends Component{
     }
     
     getSingleJob(){
-          fetch(' http://10.10.24.184:8080/api/wishList/WishLists/2', {
+          fetch(host.config.hostname+'/api/wishList/WishLists/2', {
             method: 'GET',
            headers: {
               'Content-Type': 'application/json'

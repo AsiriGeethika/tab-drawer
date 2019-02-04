@@ -4,7 +4,7 @@ import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator
 import {Button,Body,Left,Icon,Right} from "native-base";
 // import CustomImage from './CustomImage';
 import { withNavigation } from 'react-navigation';
-
+const host = require('./../../../src/config/config');
 
 
 const data=[
@@ -54,7 +54,7 @@ class ViewCardAuth extends Component{
     
     getAllJob(){
      
-        fetch(' http://10.10.24.184:8080/api/home/all', {
+        fetch(host.config.hostname+'/api/home/all', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -132,9 +132,9 @@ class ViewCardAuth extends Component{
                 />
                 <Text style={styles.item}>{val.name}</Text>
                 {/* str.substring(1, 4); */}
-                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>
-                <Text style={styles.add2}>{val.newPrice}</Text>
+                <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
+                <Text style={styles.add1}>{val.oldPrice} LKR</Text>
+                <Text style={styles.add2}>{val.newPrice} LKR</Text>
 
                 <TouchableOpacity style={styles.more}
                     onPress={()=>this.viewMoreDetails(val.id,val.discount, val.endDate, val.name, val.newPrice, val.oldPrice, val.photoUrl, val.startDate)}
@@ -212,6 +212,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'center',
         padding: 5,
+    },
+    date:{
+        fontFamily: 'Cochin',
+        fontSize: 14,
+        color: 'rgb(193, 66, 66)',
     },
     add:{
       fontFamily: 'Cochin',

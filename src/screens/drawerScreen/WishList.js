@@ -97,10 +97,6 @@ getWishlist(){
         // let View_Card=data.map((val, key)=>{
             return(
                  <View key={key} style={styles.col}  >
-                {/*<Text style={styles.add}>{val.discount}% Off</Text>*/}
-                {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
-                {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
-                
                 <Image
                     style={{width: 50, height: 50}}
                     source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
@@ -109,7 +105,7 @@ getWishlist(){
                 {/* str.substring(1, 4); 
                 <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
                 <Text style={styles.add1}>{val.oldPrice}</Text>*/}
-                <Text style={styles.add2}>{val.newPrice}</Text>
+                <Text style={styles.add2}>{val.newPrice} LKR</Text>
 
                 <TouchableOpacity style={styles.del}
                     onPress={()=>this.deleteWishlist()}
@@ -149,7 +145,7 @@ export default DrawerScreen1;
     
     const styles = StyleSheet.create({
         container1: {
-            flex: 1,
+            flex: 2,
             backgroundColor: '#fff',  
         },
         banner:{

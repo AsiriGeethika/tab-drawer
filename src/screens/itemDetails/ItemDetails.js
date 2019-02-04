@@ -1,7 +1,7 @@
 import { StyleSheet, View,TouchableOpacity, TextInput, Button, Text, Alert, Image,ScrollView,AsyncStorage } from 'react-native';
 import React, { Component} from 'react';
 import CustomImage from './../../components/CustomImage';
-
+const host = require('./../../../src/config/config')
  
 class ItemDetails extends Component { 
   static navigationOptions = {
@@ -74,7 +74,7 @@ class ItemDetails extends Component {
     console.log("addWishList_Item_id "+this.state.item_id);
 
    
-      fetch(' http://10.10.24.184:8080/api/order/addOrderList', {
+      fetch(host.config.hostname+'/api/order/addOrderList', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

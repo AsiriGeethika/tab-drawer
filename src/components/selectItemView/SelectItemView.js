@@ -81,9 +81,10 @@ class SelectItemView extends Component{
                 />
                 <Text style={styles.item}>{val.name}</Text>
                 {/* str.substring(1, 4); */}
-                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>
-                <Text style={styles.add2}>{val.newPrice}</Text>
+                <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
+                <Text style={styles.add1}>{val.oldPrice} LKR</Text>
+                <Text style={styles.add2}>{val.newPrice} LKR</Text>
+
                 </View>
             )
         })
@@ -132,6 +133,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#fff',
       
+    },
+    date:{
+        fontFamily: 'Cochin',
+        fontSize: 14,
+        color: 'rgb(193, 66, 66)',
     },
     col2:{
       flex: 1,

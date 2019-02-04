@@ -8,6 +8,7 @@ import {View,
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { StackActions, NavigationActions } from 'react-navigation';
+const host = require('./../../../src/config/config')
  
 class Logout extends Component{ 
 

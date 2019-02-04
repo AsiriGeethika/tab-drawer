@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
 import CustomImage from './CustomImage';
+const host = require('./../../src/config/config')
 
 
 
@@ -53,7 +54,7 @@ class ViewCard extends Component{
     
     getAllJob(){
      
-        fetch(' http://10.10.24.184:8080/api/home/all', {
+        fetch(host.config.hostname+'/api/home/all', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -96,9 +97,9 @@ class ViewCard extends Component{
                 />
                 <Text style={styles.item}>{val.name}</Text>
                 {/* str.substring(1, 4); */}
-                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>
-                <Text style={styles.add2}>{val.newPrice}</Text>
+                <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
+                <Text style={styles.add1}>{val.oldPrice} LKR</Text>
+                <Text style={styles.add2}>{val.newPrice} LKR</Text>
                 </View>
             )
         })
@@ -129,6 +130,11 @@ const styles = StyleSheet.create({
         margin: 5,
         marginBottom: 5,
         
+    },
+    date:{
+        fontFamily: 'Cochin',
+        fontSize: 14,
+        color: 'rgb(193, 66, 66)',
     },
     container2:{
         flex: 2,

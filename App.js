@@ -17,12 +17,14 @@ import TabScreen2 from './src/screens/tabscreen/ProfileScreen';
 import DrawerScreen4 from './src/screens/drawerScreen/Categories';
 import ViewCard from './src/components/ViewCard';
 import ItemDetails from './src/screens/itemDetails/ItemDetails';
-import Category1 from './src/screens/categories/Food';
-import Category3 from './src/screens/categories/Service';
-import Category2 from './src/screens/categories/Clothing';
-import Category4 from './src/screens/categories/Finance';
-import Category5 from './src/screens/categories/Others';
+//import Category1 from './src/screens/categories/Food';
+//import Category3 from './src/screens/categories/Service';
+//import Category2 from './src/screens/categories/Clothing';
+//import Category4 from './src/screens/categories/Finance';
+//import Category5 from './src/screens/categories/Others';
 import Select from './src/authScreen/login/Select';
+import SelectItem from './src/screens/categories/SelectItem';
+import DrawerScreen5 from './src/screens/drawerScreen/OrdersScreen';
 
 import STabScreen1 from './src/Sup.screens/tabscreen/HomeScreen';
 import STabScreen4 from './src/Sup.screens/tabscreen/Notification';
@@ -35,7 +37,7 @@ import SDrawerScreen3 from './src/Sup.screens/drawerScreen/Settings';
 import SupRegister from './src/Sup.screens/LoginScreen/Register';
 import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
 import createAd from './src/Sup.screens/tabscreen/createAd';
-import SelectItem from './src/screens/categories/SelectItem';
+import RegisterSuccess from './src/screens/LoginScreen/RegisterSuccess';
 
 
 export default class App extends Component{
@@ -58,15 +60,16 @@ const AppStackNavigator = createStackNavigator({
   Signin:{screen : SignIn},
   ViewCard:{screen:ViewCard},
   About:{screen:DrawerScreen2},
-  Orders:{screen:TabScreen3},
+  Orders:{screen:DrawerScreen5},
   Wish:{screen:DrawerScreen1},
   Profile:{screen:TabScreen2},
   Categories:{screen:DrawerScreen4},
-  Food: {screen:Category1},
-  Cloth:{screen:Category2},
-  Serv : {screen:Category3},
-  Fin:{screen:Category4},
-  Other:{screen:Category5},
+  RegisterSuccess:{screen:RegisterSuccess},
+  // Food: {screen:Category1},
+  // Cloth:{screen:Category2},
+  // Serv : {screen:Category3},
+  // Fin:{screen:Category4},
+  // Other:{screen:Category5},
 
   SHome: {screen:STabScreen1},
   Smsg:{screen:STabScreen4},

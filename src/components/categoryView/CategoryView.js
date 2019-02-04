@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
 import { withNavigation } from 'react-navigation'
+import { config } from '../../config/config';
+const host = require('./../../../src/config/config')
 
 class DrawerScreen4 extends Component{
 constructor(props){
@@ -21,7 +23,7 @@ componentDidMount(){
 
 getCategory(){
  
-    fetch(' http://10.10.24.184:8080/api/home/allCategory', {
+    fetch(host.config.hostname+'/api/home/allCategory', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

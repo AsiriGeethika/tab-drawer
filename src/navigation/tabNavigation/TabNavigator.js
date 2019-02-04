@@ -33,19 +33,6 @@ const TabNavigation = createMaterialTopTabNavigator({
             )
         }
     },
-
-    Orders:{
-        screen:TabScreen3,
-        navigationOptions: {
-            tabBarLabel: "",
-            tabBarIcon: ({ tintColor }) => (
-                <Icon
-                    name="ios-cart"
-                    size={20}
-                    color={tintColor} />
-            )
-        }
-    },
     Messages:{
         screen:TabScreen4,
         navigationOptions: {

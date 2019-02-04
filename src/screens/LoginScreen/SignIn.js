@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity,TextInput, View, Alert, Button,ImageBackgr
 import { StackNavigator } from 'react-navigation';
 import CustomHeader from '../../components/Header/Header';
 import ViewCard from '../../components/ViewCard';
-
+const host = require('./../../config/config')
 
  
 class LoginActivity extends Component {
@@ -25,7 +25,7 @@ UserLoginFunction = () =>{
   console.log("Username or Email :"+usernameOrEmail);
   console.log("password :"+password);
  
-    fetch('http://10.10.24.184:8080/api/auth/signin', {
+    fetch(host.config.hostname+'/api/auth/signin', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -74,7 +74,7 @@ getUserDetails(token){
   console.log("Username or Email :"+usernameOrEmail);
   console.log("password :"+password);
  
-    fetch(`http://10.10.24.184:8080/api/user/${token}`, {
+    fetch(host.config.hostname+`/api/user/${token}`, {
       method: 'GET',
  
 }).then((response) => response.json())
@@ -125,7 +125,7 @@ async userHandler(data){
         <TouchableOpacity style={styles.button} onPress={this.UserLoginFunction}>
             <Text style={styles.buttonText1}>Sign In</Text>
         </TouchableOpacity>
-        <Button title="Back to Home" onPress={()=>this.props.navigation.navigate('Home')} style={styles.btn}/>
+        <Button title="Back to Home" onPress={()=>this.props.navigation.navigate('DefaultScreen')} style={styles.btn}/>
     </View>           
     </ScrollView>
     );

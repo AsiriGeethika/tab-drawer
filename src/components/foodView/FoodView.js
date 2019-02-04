@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
 import {Button,Body,Left,Icon,Right} from "native-base";
 // import CustomImage from './CustomImage';
-
+const host = require('./../../../src/config/config')
 
 
 const data=[
@@ -53,7 +53,7 @@ class FoodView extends Component{
     
     getAllJob(){
         // http://localhost:8080/api/home/5
-        fetch(' http://10.10.24.184:8080/api/home/2', {
+        fetch(host.config.hostname+'/api/home/2', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
