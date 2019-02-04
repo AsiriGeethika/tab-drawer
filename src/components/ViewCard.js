@@ -1,3 +1,5 @@
+//Default View Card
+
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator} from 'react-native';
@@ -6,38 +8,6 @@ import CustomImage from './CustomImage';
 const host = require('./../../src/config/config')
 
 
-
-const data=[
-    {
-       discount:'50',
-       photoUrl:'csfsd.png',
-       name:'Ladies Shoes',
-       startDate:'15th Dec',
-       endDate: '31st Dec',
-       oldPrice: '3500 LKR',
-       newPrice:'1750 LKR'
-    },
-
-    {
-        discount:'20',
-        photoUrl:'csfsd.png',
-        name:'Nike Sports Shoes',
-        startDate:'15th Dec',
-        endDate: '31st Dec',
-        oldPrice: '3500 LKR',
-        newPrice:'1750 LKR'
-     },
-
-    {
-       discount:'30',
-       photoUrl:'csfsd.png',
-       name:'Nike Sports Shoes',
-       startDate:'15th Dec',
-       endDate: '31st Dec',
-       oldPrice: '3500 LKR',
-       newPrice:'1750 LKR'
-    }
-]
 class ViewCard extends Component{
     constructor(props){
         super(props);
@@ -73,6 +43,7 @@ class ViewCard extends Component{
       }
 
       render(){
+          //var url=this.state.data.photoUrl;
         if(this.state.isLoading){
             return(
                 <View>
@@ -85,18 +56,11 @@ class ViewCard extends Component{
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
-                // https://ng.jumia.is/YX7Q5y5lIxyzZj5Nmh9wuByrmlM=/fit-in/680x680/filters:fill(white):sharpen(1,0,false):quality(100)/product/95/76869/1.jpg
+                
                 <View key={key} style={styles.col2}  >
                 <Text style={styles.add}>{val.discount}% Off</Text>
-                {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
-                {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
-                
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                />
+                <Image style={styles.image} source={{uri: val.photoUrl}}/>
                 <Text style={styles.item}>{val.name}</Text>
-                {/* str.substring(1, 4); */}
                 <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
                 <Text style={styles.add1}>{val.oldPrice} LKR</Text>
                 <Text style={styles.add2}>{val.newPrice} LKR</Text>
@@ -213,6 +177,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingBottom: 5,
       marginTop: 10,
+    },
+    image:{
+        width: '100%',
+        height: 150,
+        alignItems: 'center',
+        justifyContent: 'center',
+        resizeMode: 'contain',
     },
   
   });

@@ -15,8 +15,8 @@ render(){
       <CustomHeader/>
       <ImageBackground source={require('./../../Images/ww.jpg')} style={styles.banner}>
         <View style={styles.container}>
-          <Text style={styles.txt1}>Sign in with OfferMe</Text>
-          <Text style={styles.txt2}>We can personalize your OfferMe experience</Text>
+          <Text style={styles.txt1}>Welcome to OfferMe</Text>
+          <Text style={styles.txt2}>You can find best products with best offers </Text>
         </View>
       </ImageBackground>
             

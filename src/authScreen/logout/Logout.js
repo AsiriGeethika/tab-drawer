@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    Alert,
-    AsyncStorage
-} from 'react-native';
+import {View,Text,StyleSheet,Alert,AsyncStorage} from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { StackActions, NavigationActions } from 'react-navigation';
 const host = require('./../../../src/config/config')
@@ -16,16 +10,15 @@ class Logout extends Component{
         super(props);
         this.getToken();
         this.getDecision();
-      }
-      state={
+    }
+    state={
         decision:'',
         token:""
-      };
+    };
 
     handletoken=(text)=>{
       this.setState({token:text});
       console.log("In handletoken Function : "+this.state.token+" ******** ")
-
     }
 
     getDecision(){
@@ -61,47 +54,7 @@ class Logout extends Component{
         }
       }
 
-    // requestlogout(){
-    //     var tkn=this.state.token;
-    //     console.log('requestlogout');
-    //     console.log('Token '+tkn);
-    //     fetch('https://ems.aladinlabs.com/api/auth/logout', {
-    //         method: 'GET',
-    //         headers: {
-    //           "Authorization": 'Bearer '+ tkn,
-    //           'Content-Type': 'XMLHttpRequest'
-    //         }
-            
-    //     })
-      
-    //   .then((response) => response.json())
-    //         .then((responseJson) => {
-    //             this.datahandler(responseJson)
-    //            })
-    //         // .then((res) => {
-    //         //     console.log("############ "+res+" ########### ")
-    //         //     if (res.state === true) {
-    //         //       this.removeToken()
-                  
-    //         //     } else {
-    //         //         alert(res.msg)
-    //         //     }
-    //         // })
-    //         .done();
-    // }
-
-    // datahandler(data){
-    //     console.log('Data Handler');
-    //     console.log(data);
-    //     console.log(data.message);
-    //     if(data.message == 'Successfully logged out'){
-    //         this.removeToken();
-    //     }else{
-    //         alert(data.message)
-    //     }
-
-           
-    // }
+    
     async removeToken(){
             try{
                 let thistoken=await AsyncStorage.removeItem("token");
@@ -113,20 +66,6 @@ class Logout extends Component{
                 // this.props.navigation.navigate('Login');
                 console.log("before nav");
                 this.props.navigation.navigate("DefaultScreen");
-                // this.props.navigator.immediatelyResetStack([Router.getRoute('AppStackNavigator')], 0);
-                // {() => this.props.navigation.navigate("Notice")};
-
-                // this.props.navigation.goBack();
-                // this.props.navigation.goBack();
-
-
-                // const resetAction = StackActions.reset({
-                //     index: 0,
-                //     actions: [NavigationActions.navigate({ routeName: 'TabNavigation' })],
-                //   });
-                //   this.props.navigation.dispatch(resetAction);
-
-                // this.props.navigation.dispatch(StackActions.popToTop());
                 console.log("after nav");
                 //alert(a) 
             }catch(error){

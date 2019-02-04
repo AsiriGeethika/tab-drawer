@@ -1,3 +1,5 @@
+//Get the categories list 
+
 import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
@@ -71,15 +73,10 @@ getCategory(){
                return(
                    //Style here
                <View key={key} style={styles.btnn}>
-                    <TouchableOpacity
-                        onPress={() => this.dataHandler(val.name, val.id)}
-                        
-                        // this.props.navigator.navigate
-                    >
+                    <TouchableOpacity onPress={() => this.dataHandler(val.name, val.id)}>
                         <Text style={styles.Textstyle}>{val.name}</Text>
                     </TouchableOpacity>
                </View>
-               //style end
                )
         })
     

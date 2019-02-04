@@ -96,21 +96,12 @@ getWishlist(){
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
-                 <View key={key} style={styles.col}  >
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                />
+                <View key={key} style={styles.col}  >
+                <Image style={styles.image} source={{uri: val.photoUrl}}/>
                 <Text style={styles.item}>{val.name}</Text>
-                {/* str.substring(1, 4); 
-                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
-                <Text style={styles.add1}>{val.oldPrice}</Text>*/}
                 <Text style={styles.add2}>{val.newPrice} LKR</Text>
-
-                <TouchableOpacity style={styles.del}
-                    onPress={()=>this.deleteWishlist()}
-                >
-                    <Text>
+                <TouchableOpacity style={styles.del} onPress={()=>this.deleteWishlist()}>
+                    <Text delText>
                         Delete from list
                     </Text>
                 </TouchableOpacity>
@@ -122,7 +113,7 @@ getWishlist(){
         return(
             <ScrollView style={styles.container1}>
             <CustomHeader/>
-              <ImageBackground source={require('./../../Images/wishlist.jpg')} style={styles.banner}>
+              <ImageBackground source={require('./../../Images/wish.png')} style={styles.banner}>
                    <View style={styles.container}>
                       <Text style={styles.txt1}>Wish List</Text>
                   </View>
@@ -212,5 +203,18 @@ export default DrawerScreen1;
             fontWeight: 'bold',
             alignItems: 'center',
             paddingBottom: 5,
+        },
+        image:{
+            width: '100%',
+            height: 150,
+            alignItems: 'center',
+            justifyContent: 'center',
+            resizeMode: 'contain',
+        },
+        delText:{
+            fontFamily: 'Cochin',
+            fontSize: 16,
+            color: '#000000',
+            fontWeight: 'bold',
         },
     })

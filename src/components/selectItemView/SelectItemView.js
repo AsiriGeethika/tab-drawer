@@ -1,3 +1,5 @@
+//Category wise View card
+
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import {View,StyleSheet,Text,Image,ScrollView,TouchableOpacity,ActivityIndicator,AsyncStorage} from 'react-native';
@@ -60,6 +62,7 @@ class SelectItemView extends Component{
       }
 
       render(){
+          
           console.log("Select item view render");
         if(this.state.isLoading){
             return(
@@ -75,10 +78,7 @@ class SelectItemView extends Component{
             return(
                 <View key={key} style={styles.col2}  >
                 <Text style={styles.add}>{val.discount}% Off</Text>
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                />
+                <Image style={styles.image} source={{uri: val.photoUrl}}/>
                 <Text style={styles.item}>{val.name}</Text>
                 {/* str.substring(1, 4); */}
                 <Text style={styles.date}>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
@@ -198,6 +198,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingBottom: 5,
       marginTop: 10,
+    },
+    image:{
+        width: '100%',
+        height: 150,
+        alignItems: 'center',
+        justifyContent: 'center',
+        resizeMode: 'contain',
     },
   
   });

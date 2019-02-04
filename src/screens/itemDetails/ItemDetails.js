@@ -166,7 +166,8 @@ class ItemDetails extends Component {
           <View style={styles.head}>
             <Text style={styles.add}>{this.state.discount}% OFF</Text>
           </View>
-          <Image source={require('./../../Images/sportshoes.jpeg')} style={styles.banner}/>
+          {/* <Image style={styles.image} source={{uri: this.state.photoUrl}}/> */}
+          <Image source={{uri: this.state.photoUrl}} style={styles.banner}/>
           <View style={styles.container1}>
             <Text style={styles.item}>{this.state.name}</Text>
             <Text style={styles.add1}>{this.state.oldPrice} LKR</Text>

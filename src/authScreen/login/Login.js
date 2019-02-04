@@ -14,17 +14,16 @@ constructor(props){
      render(){
         return(
             <View style={styles.container}> 
-            <View style={styles.header}>
-                <Image source={require('./../../Images/OfferMeLogo.png')} style = {styles.img1}  />
-                
-            </View>
-                <View style={{alignItems:'center'}}>
-                <TouchableOpacity style={styles.btnn} onPress={this.loginHandler}>
-                        <Text style={styles.buttonText1}>Get Started!</Text>
-                </TouchableOpacity>
+                <View style={styles.header}>
+                    <Image source={require('./../../Images/OfferMeLogo.png')} style = {styles.img1}  />  
                 </View>
-                
-             </View>
+            
+                <View style={{alignItems:'center'}}>
+                    <TouchableOpacity style={styles.btnn} onPress={this.loginHandler}>
+                        <Text style={styles.buttonText1}>Get Started!</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
          )
      }
 }
@@ -40,11 +39,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     img1:{
-            width:300,
-            height:300
+        width:300,
+        height:300
     },
     header:{
-        //flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20, 
@@ -59,5 +57,5 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         alignItems: 'center',
-      }
+    }
 });

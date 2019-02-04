@@ -1,3 +1,5 @@
+//category category page
+
 import React, { Component } from 'react';
 import {View,ScrollView,ImageBackground,Text,StyleSheet,TouchableOpacity,AsyncStorage,ActivityIndicator} from 'react-native';
 import CustomHeader from '../../components/Header/Header';
