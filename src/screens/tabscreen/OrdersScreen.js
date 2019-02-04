@@ -111,9 +111,15 @@ getOrderlist(){
             let View_Card=this.state.data.map((val, key)=>{
         // let View_Card=data.map((val, key)=>{
             return(
+<<<<<<< HEAD
                  <View key={key} style={styles.col2}  >
                 <Text style={styles.add}>{val.discount}% Off</Text>
                 {/* <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
+=======
+                <View key={key} style={styles.col2}  >
+                {/*<Text style={styles.add}>{val.discount}% Off</Text>
+                 <CustomImage imageSource={require('./../Images/Shoe.jpg')}/> */}
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
                 {/* <CustomImage imageSource={require('https://drive.google.com/file/d/1Sa-95G3S_u7IRRuU1N0rrrxBopwv1lpP/view?usp=sharing')}/> */}
                 
                 <Image
@@ -121,10 +127,17 @@ getOrderlist(){
                     source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
                 />
                 <Text style={styles.item}>{val.name}</Text>
+<<<<<<< HEAD
                 {/* str.substring(1, 4); */}
                 <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
                 <Text style={styles.add1}>{val.oldPrice}</Text>
                 <Text style={styles.add2}>{val.newPrice}</Text>
+=======
+                {/* str.substring(1, 4); 
+                <Text>From {val.startDate.substring(0,10)} To {val.endDate.substring(0,10)}</Text>
+                <Text style={styles.add1}>{val.oldPrice}</Text>*/}
+                <Text style={styles.add2}>{val.newPrice} LKR</Text>
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
 
                 <TouchableOpacity style={{backgroundColor:'red'}}
                     onPress={()=>this.deleteorderlist()}

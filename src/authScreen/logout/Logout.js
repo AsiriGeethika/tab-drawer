@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import {View,
     Text,
     StyleSheet,
@@ -8,6 +9,12 @@ import {View,
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { StackActions, NavigationActions } from 'react-navigation';
+=======
+import {View,Text,StyleSheet,Alert,AsyncStorage} from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { StackActions, NavigationActions } from 'react-navigation';
+const host = require('./../../../src/config/config')
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
  
 class Logout extends Component{ 
 
@@ -15,16 +22,27 @@ class Logout extends Component{
         super(props);
         this.getToken();
         this.getDecision();
+<<<<<<< HEAD
       }
       state={
         decision:'',
         token:""
       };
+=======
+    }
+    state={
+        decision:'',
+        token:""
+    };
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
 
     handletoken=(text)=>{
       this.setState({token:text});
       console.log("In handletoken Function : "+this.state.token+" ******** ")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
     }
 
     getDecision(){
@@ -60,6 +78,7 @@ class Logout extends Component{
         }
       }
 
+<<<<<<< HEAD
     // requestlogout(){
     //     var tkn=this.state.token;
     //     console.log('requestlogout');
@@ -101,6 +120,9 @@ class Logout extends Component{
 
            
     // }
+=======
+    
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
     async removeToken(){
             try{
                 let thistoken=await AsyncStorage.removeItem("token");
@@ -112,6 +134,7 @@ class Logout extends Component{
                 // this.props.navigation.navigate('Login');
                 console.log("before nav");
                 this.props.navigation.navigate("DefaultScreen");
+<<<<<<< HEAD
                 // this.props.navigator.immediatelyResetStack([Router.getRoute('AppStackNavigator')], 0);
                 // {() => this.props.navigation.navigate("Notice")};
 
@@ -126,6 +149,8 @@ class Logout extends Component{
                 //   this.props.navigation.dispatch(resetAction);
 
                 // this.props.navigation.dispatch(StackActions.popToTop());
+=======
+>>>>>>> 2cd2877f15e60f0a27702b6e6271bcd13664b4fa
                 console.log("after nav");
                 //alert(a) 
             }catch(error){

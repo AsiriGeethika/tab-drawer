@@ -13,11 +13,12 @@ constructor(props){
         console.log("Press Customer");
         this.props.navigation.navigate('DefaultScreen')
     }
+
     loginHandler1=()=>{
         this.props.navigation.navigate('HScreen')
     }
 
-     render(){
+    render(){
         return(
             <View style={styles.container}> 
                 <View style={styles.header}>
@@ -49,11 +50,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     img1:{
-            width:300,
-            height:300
+        width:300,
+        height:300
     },
     header:{
-        //flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20, 

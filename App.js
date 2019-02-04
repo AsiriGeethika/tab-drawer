@@ -27,6 +27,16 @@ import SelectItem from './src/screens/categories/SelectItem';
 import DrawerScreen5 from './src/screens/drawerScreen/OrdersScreen';
 import RegisterSuccess from './src/screens/LoginScreen/RegisterSuccess';
 
+//import Category1 from './src/screens/categories/Food';
+//import Category3 from './src/screens/categories/Service';
+//import Category2 from './src/screens/categories/Clothing';
+//import Category4 from './src/screens/categories/Finance';
+//import Category5 from './src/screens/categories/Others';
+import Select from './src/authScreen/login/Select';
+import SelectItem from './src/screens/categories/SelectItem';
+import DrawerScreen5 from './src/screens/drawerScreen/OrdersScreen';
+
+
 
 import HScreen from './src/Sup.screens/tabscreen/HScreen';
 import STabScreen1 from './src/Sup.screens/tabscreen/HomeScreen';
@@ -41,7 +51,12 @@ import SupRegister from './src/Sup.screens/LoginScreen/Register';
 import SSignin from './src/Sup.screens/LoginScreen/SignIn';
 import SDrawerNav from './src/Sup.navigation/drawerNavigation/DrawerNavigator';
 import createAd from './src/Sup.screens/tabscreen/createAd';
+
 //import simageup from './src/Sup.screens/tabscreen/imageup';
+
+import RegisterSuccess from './src/screens/LoginScreen/RegisterSuccess';
+
+
 
 export default class App extends Component{
   render() {
@@ -64,7 +79,7 @@ const AppStackNavigator = createStackNavigator({
   Signin:{screen : SignIn},
   ViewCard:{screen:ViewCard},
   About:{screen:DrawerScreen2},
-  Orders:{screen:TabScreen3},
+  Orders:{screen:DrawerScreen5},
   Wish:{screen:DrawerScreen1},
   Profile:{screen:TabScreen2},
   Categories:{screen:DrawerScreen4},
